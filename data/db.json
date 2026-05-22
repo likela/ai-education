@@ -1,0 +1,15 @@
+{
+  "students": [
+    { "id": "minseo",  "role": "학생", "name": "김민서", "school": "한빛고 2학년 4반", "initial": "민" },
+    { "id": "seoyon",  "role": "학생", "name": "이서연", "school": "한빛고 2학년 4반", "initial": "서" },
+    { "id": "jihun",   "role": "학생", "name": "박지훈", "school": "한빛고 2학년 4반", "initial": "지" },
+    { "id": "yujun",   "role": "학생", "name": "정유준", "school": "한빛고 2학년 4반", "initial": "유" },
+    { "id": "yejin",   "role": "학생", "name": "최예진", "school": "한빛고 2학년 4반", "initial": "예" },
+    { "id": "jiwoo",   "role": "학생", "name": "한지우", "school": "한빛고 2학년 4반", "initial": "지" },
+    { "id": "seoa",    "role": "학생", "name": "윤서아", "school": "한빛고 2학년 4반", "initial": "서" },
+    { "id": "hyunwoo", "role": "학생", "name": "조현우", "school": "한빛고 2학년 4반", "initial": "현" }
+  ],
+  "teachers": [
+    { "id": "teacher", "role": "교사", "name": "김선영 선생님", "school": "진로교사 · 한빛고", "initial": "선" }
+  ]
+}

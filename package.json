@@ -1,0 +1,17 @@
+{
+  "name": "curriculum-advisor",
+  "version": "1.0.0",
+  "description": "학생별 맞춤형 커리큘럼 추천 서비스",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.3.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

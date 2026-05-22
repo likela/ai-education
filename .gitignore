@@ -1,0 +1,10 @@
+node_modules/
+.env
+*.log
+backup/
+data/*.csv
+data/*.txt
+start-tunnel.bat
+open-firewall.bat
+serve9999.js
+.claude/
