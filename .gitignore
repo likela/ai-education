@@ -2,9 +2,16 @@ node_modules/
 .env
 *.log
 backup/
-data/*.csv
-data/*.txt
+.claude/
+
+# 로컬 실행 유틸
+cloudflared.exe
+tunnel_out.txt
+tunnel_err.txt
+serve9999.js
 start-tunnel.bat
 open-firewall.bat
-serve9999.js
-.claude/
+
+# 테스트/임시 파일
+test5.js
+test6.js
