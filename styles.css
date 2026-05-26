@@ -191,6 +191,78 @@ html, body, #root { height: 100%; margin: 0; padding: 0; }
     h1[style*="font-size: 40"] { font-size: 26px !important; line-height: 1.3 !important; }
     h1[style*="font-size: 26"], h1[style*="font-size: 24"] { font-size: 20px !important; }
 
+    /* ── 텍스트 깨짐 수정 ── */
+
+    /* h2 (Section 제목): 축소 */
+    [data-student-scroll] h2,
+    [data-screen-label] > div > div h2 {
+      font-size: 18px !important;
+      line-height: 1.4 !important;
+      word-break: keep-all !important;
+    }
+    /* h3 (대학 비교 카드 제목): 축소 */
+    [data-student-scroll] h3 {
+      font-size: 17px !important;
+      word-break: keep-all !important;
+    }
+
+    /* Section 헤더 (제목 + 액션 pill): 세로 스택 */
+    [data-student-scroll] [style*="justify-content: space-between"][style*="align-items: baseline"],
+    [data-screen-label] > div > div [style*="justify-content: space-between"][style*="align-items: baseline"] {
+      flex-wrap: wrap !important;
+      gap: 6px !important;
+      align-items: flex-start !important;
+    }
+
+    /* 탭 바 컨테이너: 가로 스크롤 + 우측 페이드 */
+    [data-student-scroll] [style*="margin-bottom: 18px"][style*="border-bottom"] {
+      overflow-x: auto !important;
+      flex-wrap: nowrap !important;
+      -webkit-overflow-scrolling: touch !important;
+      scrollbar-width: none !important;
+      padding-right: 20px !important;
+      -webkit-mask-image: linear-gradient(to right, black 78%, transparent 100%);
+      mask-image: linear-gradient(to right, black 78%, transparent 100%);
+    }
+    [data-student-scroll] [style*="margin-bottom: 18px"][style*="border-bottom"]::-webkit-scrollbar {
+      display: none !important;
+    }
+    /* 탭 아이템: 줄바꿈 방지 + 패딩 축소 */
+    [data-student-scroll] [style*="margin-bottom: 18px"][style*="border-bottom"] > div {
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+      padding: 8px 10px !important;
+      font-size: 12px !important;
+    }
+
+    /* 출처·메타 flex 행: 줄바꿈 허용 */
+    [data-student-scroll] [style*="margin-bottom: 18px"][style*="align-items: center"][style*="gap: 8px"] {
+      flex-wrap: wrap !important;
+      row-gap: 4px !important;
+    }
+    /* 카드 상단 메타 (날짜·기준 등) */
+    [data-student-scroll] [style*="margin-bottom: 4px"][style*="align-items: center"] {
+      flex-wrap: wrap !important;
+      row-gap: 4px !important;
+    }
+
+    /* 카드 내 좌우 배치 (flex space-between): 좁으면 wrap */
+    [data-student-scroll] [style*="justify-content: space-between"][style*="align-items: center"] {
+      flex-wrap: wrap !important;
+      gap: 6px !important;
+    }
+
+    /* 긴 텍스트 overflow 방지 */
+    [data-student-scroll] * {
+      word-break: keep-all !important;
+      overflow-wrap: break-word !important;
+    }
+
+    /* 대시보드 진행 단계 레이블 (작은 글씨) */
+    [data-screen-label] > div [style*="font-size: 10px"] {
+      font-size: 9px !important;
+    }
+
     /* 스크롤바 얇게 */
     ::-webkit-scrollbar { width: 3px; height: 3px; }
   }
