@@ -41532,6 +41532,7 @@ var TeacherView = function TeacherView(_refTV) {
     _uState82 = _slicedToArray(_uState81, 2),
     shareRange = _uState82[0],
     setShareRange = _uState82[1];
+  var _uStateLnb = uState(false), _uStateLnb2 = _slicedToArray(_uStateLnb, 2), lnbOpen = _uStateLnb2[0], setLnbOpen = _uStateLnb2[1];
   var STUDENTS_RAW = _TEACHER_STUDENT_LIST;
   var STUDENTS = STUDENTS_RAW.map(function (s) {
     return _objectSpread(_objectSpread({}, s), {}, {
@@ -41568,6 +41569,7 @@ var TeacherView = function TeacherView(_refTV) {
     }
   }, /*#__PURE__*/React.createElement("div", {
     "data-teacher-lnb": "1",
+    "data-lnb-open": lnbOpen ? 'true' : 'false',
     style: {
       width: 320,
       borderRight: "1px solid ".concat(tokens.line),
@@ -41582,6 +41584,12 @@ var TeacherView = function TeacherView(_refTV) {
       borderBottom: "1px solid ".concat(tokens.line)
     }
   }, /*#__PURE__*/React.createElement("div", {
+    "data-lnb-close": "1",
+    onClick: function onClick() { setLnbOpen(false); },
+    style: { display: 'none', justifyContent: 'flex-end', marginBottom: 6 }
+  }, /*#__PURE__*/React.createElement("button", {
+    style: { background: 'none', border: 'none', cursor: 'pointer', fontSize: 22, color: tokens.inkSoft, padding: '0 4px', lineHeight: 1, fontFamily: 'inherit' }
+  }, "\xD7")), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 11,
       fontWeight: 700,
@@ -41772,7 +41780,8 @@ var TeacherView = function TeacherView(_refTV) {
         return /*#__PURE__*/React.createElement("div", {
           key: s.name,
           onClick: function onClick() {
-            return setSelected(i);
+            setSelected(i);
+            setLnbOpen(false);
           },
           style: {
             padding: '10px 10px',
@@ -41833,7 +41842,11 @@ var TeacherView = function TeacherView(_refTV) {
         }, statusMap[s.status].label))));
       }));
     });
-  }())), /*#__PURE__*/React.createElement("div", {
+  }())), lnbOpen ? /*#__PURE__*/React.createElement("div", {
+    "data-lnb-backdrop": "1",
+    onClick: function onClick() { setLnbOpen(false); },
+    style: { position: 'fixed', inset: 0, zIndex: 899, background: 'rgba(0,0,0,0.4)' }
+  }) : null, /*#__PURE__*/React.createElement("div", {
     "data-teacher-scroller": true,
     style: {
       flex: 1,
@@ -41878,9 +41891,14 @@ var TeacherView = function TeacherView(_refTV) {
   }, "\xB7 ", stu.grade, " \xB7 ", stu.career, " \uD76C\uB9DD"))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
-      gap: 8
+      gap: 8,
+      flexWrap: 'wrap'
     }
-  }, /*#__PURE__*/React.createElement(Button, {
+  }, /*#__PURE__*/React.createElement("button", {
+    "data-lnb-toggle": "1",
+    onClick: function onClick() { setLnbOpen(function(v) { return !v; }); },
+    style: { display: 'none', alignItems: 'center', gap: 6, background: tokens.paper, border: "1px solid ".concat(tokens.line), borderRadius: 8, padding: '6px 12px', cursor: 'pointer', fontSize: 14, color: tokens.inkSoft, fontFamily: 'inherit', whiteSpace: 'nowrap' }
+  }, "\u2630 \uBAA9\uB85D"), /*#__PURE__*/React.createElement(Button, {
     variant: "secondary",
     size: "md",
     onClick: function onClick() {
