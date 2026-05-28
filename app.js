@@ -36619,17 +36619,18 @@ var StudentDashboard = function StudentDashboard(_ref2) {
   }, "\u24D8 \uC120\uC0DD\uB2D8\uAED8\uB294 \uC0C8 \uD65C\uB3D9 \uAE30\uB85D \uC54C\uB9BC\uC774 \uAC00\uC694"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
-      gap: 8
+      gap: 8,
+      flexWrap: 'wrap'
     }
   }, /*#__PURE__*/React.createElement(Button, {
-    variant: "ghost",
-    size: "md",
+    variant: "secondary",
+    size: "sm",
     onClick: function onClick() {
       return setRecordOpen(false);
     }
   }, "\uCDE8\uC18C"), /*#__PURE__*/React.createElement(Button, {
     variant: "primary",
-    size: "md",
+    size: "sm",
     disabled: !rec.title.trim(),
     onClick: function onClick() {
       var toneMap = {
