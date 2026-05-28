@@ -41567,6 +41567,7 @@ var TeacherView = function TeacherView(_refTV) {
       overflow: 'hidden'
     }
   }, /*#__PURE__*/React.createElement("div", {
+    "data-teacher-lnb": "1",
     style: {
       width: 320,
       borderRight: "1px solid ".concat(tokens.line),
@@ -44013,6 +44014,7 @@ var SchoolActivityMenu = function SchoolActivityMenu(_refSA) {
       margin: '0 auto'
     }
   }, /*#__PURE__*/React.createElement("div", {
+    "data-sa-header": "1",
     style: {
       display: 'flex',
       justifyContent: 'space-between',
@@ -44118,6 +44120,7 @@ var SchoolActivityMenu = function SchoolActivityMenu(_refSA) {
       }
     }, "/ ", items.length, "\uAC74"))));
   }))), /*#__PURE__*/React.createElement("div", {
+    "data-sa-cattabs": "1",
     style: {
       display: 'flex',
       gap: 6,

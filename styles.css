@@ -265,6 +265,76 @@ html, body, #root { height: 100%; margin: 0; padding: 0; }
 
     /* 스크롤바 얇게 */
     ::-webkit-scrollbar { width: 3px; height: 3px; }
+
+    /* ── 교사 LNB 너비 축소 ── */
+    [data-teacher-lnb] {
+      width: 180px !important;
+      min-width: 180px !important;
+    }
+    [data-teacher-lnb] > div:first-child {
+      padding: 14px 12px 10px !important;
+    }
+    [data-teacher-lnb] > div:first-child > div:first-child {
+      font-size: 9px !important;
+    }
+    [data-teacher-lnb] > div:first-child > div:nth-child(2) {
+      font-size: 14px !important;
+    }
+
+    /* ── 학교 운영 활동 헤더: 버튼을 제목 아래로 ── */
+    [data-sa-header] {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 10px !important;
+    }
+
+    /* ── 카테고리 탭: 가로 스크롤 (텍스트 세로 깨짐 방지) ── */
+    [data-sa-cattabs] {
+      overflow-x: auto !important;
+      flex-wrap: nowrap !important;
+      -webkit-overflow-scrolling: touch !important;
+      scrollbar-width: none !important;
+      -webkit-mask-image: linear-gradient(to right, black 82%, transparent 100%);
+      mask-image: linear-gradient(to right, black 82%, transparent 100%);
+      padding-bottom: 4px !important;
+    }
+    [data-sa-cattabs]::-webkit-scrollbar { display: none !important; }
+    [data-sa-cattabs] > div {
+      flex: 0 0 auto !important;
+      min-width: 88px !important;
+      padding: 8px 10px !important;
+      gap: 6px !important;
+    }
+    [data-sa-cattabs] > div > div > div:first-child {
+      font-size: 11px !important;
+      white-space: nowrap !important;
+    }
+    [data-sa-cattabs] > div > div > div:last-child {
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      white-space: nowrap !important;
+      font-size: 9px !important;
+      max-width: 70px !important;
+    }
+
+    /* ── 학교 운영 활동 본문 패딩 축소 ── */
+    [data-screen-label="교사-학교 운영 활동"] {
+      padding: 20px 16px !important;
+    }
+
+    /* ── 교사 상세 콘텐츠: 버튼 그룹 줄바꿈 ── */
+    [data-teacher-scroller] > div > div:first-child {
+      flex-wrap: wrap !important;
+      gap: 8px !important;
+    }
+    [data-teacher-scroller] > div > div:first-child > div:last-child {
+      flex-wrap: wrap !important;
+      gap: 6px !important;
+    }
+    [data-teacher-scroller] > div > div:first-child > div:last-child button {
+      white-space: nowrap !important;
+      min-height: 36px !important;
+    }
   }
 
   /* ── 소형 모바일 (≤ 480px) ── */
@@ -278,6 +348,15 @@ html, body, #root { height: 100%; margin: 0; padding: 0; }
     /* 로고 텍스트 더 짧게 */
     [data-no-print] > div:first-child > div:first-child > div:last-child {
       max-width: 60px !important;
+    }
+    /* LNB 더 좁게 */
+    [data-teacher-lnb] {
+      width: 150px !important;
+      min-width: 150px !important;
+    }
+    /* 학교 운영 활동 패딩 추가 축소 */
+    [data-screen-label="교사-학교 운영 활동"] {
+      padding: 16px 12px !important;
     }
   }
 
