@@ -41863,6 +41863,7 @@ var TeacherView = function TeacherView(_refTV) {
       maxWidth: 880
     }
   }, /*#__PURE__*/React.createElement("div", {
+    "data-teacher-content-header": "1",
     style: {
       display: 'flex',
       justifyContent: 'space-between',
@@ -41893,6 +41894,7 @@ var TeacherView = function TeacherView(_refTV) {
       color: tokens.muted
     }
   }, "\xB7 ", stu.grade, " \xB7 ", stu.career, " \uD76C\uB9DD"))), /*#__PURE__*/React.createElement("div", {
+    "data-header-btns": "1",
     style: {
       display: 'flex',
       gap: 8,
@@ -41914,7 +41916,7 @@ var TeacherView = function TeacherView(_refTV) {
     onClick: function onClick() {
       return setDrawer('report');
     }
-  }, "\uD83D\uDCCA \uC0C1\uB2F4 \uB9AC\uD3EC\uD2B8"), /*#__PURE__*/React.createElement("div", {"data-confirm-btn-wrap": "1"}, /*#__PURE__*/React.createElement(Button, {
+  }, "\uD83D\uDCCA \uC0C1\uB2F4 \uB9AC\uD3EC\uD2B8")), /*#__PURE__*/React.createElement("div", {"data-confirm-btn-wrap": "1"}, /*#__PURE__*/React.createElement(Button, {
     variant: "primary",
     size: "md",
     disabled: stu.status === 'review' || stu.status === 'input' || stu.status === 'confirmed',
@@ -41923,11 +41925,12 @@ var TeacherView = function TeacherView(_refTV) {
       setStatusOverride(_objectSpread(_objectSpread({}, statusOverride), {}, _defineProperty({}, stu.name, 'confirmed')));
       showTToast(stu.name + ' 학생의 커리큘럼이 확정되었어요.');
     }
-  }, stu.status === 'confirmed' ? '✓ 확정 완료' : stu.status === 'review' || stu.status === 'input' ? '검토 후 확정' : '커리큘럼 확정')))), /*#__PURE__*/React.createElement(Card, {
+  }, stu.status === 'confirmed' ? '✓ 확정 완료' : stu.status === 'review' || stu.status === 'input' ? '검토 후 확정' : '커리큘럼 확정'))), /*#__PURE__*/React.createElement(Card, {
     style: {
       marginBottom: 14
     }
   }, /*#__PURE__*/React.createElement("div", {
+    "data-stats-grid": "1",
     style: {
       display: 'grid',
       gridTemplateColumns: 'repeat(4, 1fr)',

@@ -32,6 +32,15 @@ html, body, #root { height: 100%; margin: 0; padding: 0; }
   ::-webkit-scrollbar-thumb { background: #D9D5C9; border-radius: 5px; border: 2px solid #F6F4EF; }
   ::-webkit-scrollbar-thumb:hover { background: #BFB9A8; }
 
+  /* ── 교사 헤더: 데스크탑 레이아웃 (이름 flex:1, 오른쪽 버튼들 인접) ── */
+  [data-teacher-content-header] {
+    justify-content: flex-start !important;
+    gap: 8px !important;
+  }
+  [data-teacher-content-header] > div:first-child {
+    flex: 1 !important;
+  }
+
   /* ===== 반응형 (Responsive) ===== */
 
   /* ── 태블릿 (≤ 1024px) ── */
@@ -338,23 +347,26 @@ html, body, #root { height: 100%; margin: 0; padding: 0; }
       padding: 20px 16px !important;
     }
 
-    /* ── 교사 상세 콘텐츠: 버튼 그룹 줄바꿈 ── */
-    [data-teacher-scroller] > div > div:first-child {
+    /* ── 교사 헤더: 이름 + 확정 버튼 1행 / 기타 버튼 2행 ── */
+    [data-teacher-content-header] {
       flex-wrap: wrap !important;
-      gap: 8px !important;
+      align-items: center !important;
     }
-    [data-teacher-scroller] > div > div:first-child > div:last-child {
+    [data-teacher-content-header] > div:first-child {
+      min-width: 0 !important;
+    }
+    [data-confirm-btn-wrap] {
+      flex-shrink: 0 !important;
+      align-self: center !important;
+    }
+    [data-header-btns] {
+      width: 100% !important;
       flex-wrap: wrap !important;
       gap: 6px !important;
     }
-    [data-teacher-scroller] > div > div:first-child > div:last-child button {
+    [data-header-btns] button {
       white-space: nowrap !important;
       min-height: 36px !important;
-    }
-
-    /* ── 검토 후 확정 버튼: 최상단으로 ── */
-    [data-confirm-btn-wrap] {
-      order: -1 !important;
     }
 
     /* ── 학생의 진로 여정: PDF 출력 헤더 ── */
@@ -422,10 +434,13 @@ html, body, #root { height: 100%; margin: 0; padding: 0; }
       font-size: 0 !important;
     }
 
-    /* ── 피드백 체크박스 그리드: 폰트 축소 ── */
-    [data-feedback-grid],
-    [data-feedback-grid] * {
-      font-size: 11px !important;
+    /* ── 피드백 체크박스 그리드: 폰트·패딩 축소 (한줄 표시) ── */
+    [data-feedback-grid] > div {
+      padding: 6px 10px !important;
+      font-size: 10px !important;
+    }
+    [data-feedback-grid] > div * {
+      font-size: 10px !important;
     }
 
     /* ── 피드백 액션 버튼 (임시저장 · 학생에게 전송): 세로 스택 ── */
@@ -441,6 +456,21 @@ html, body, #root { height: 100%; margin: 0; padding: 0; }
     [data-feedback-actions] > div:last-child button {
       white-space: nowrap !important;
       flex: 1 !important;
+    }
+
+    /* ── 활동 균형: 4열 → 2열 그리드 (텍스트 한줄) ── */
+    [data-stats-grid] {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 12px !important;
+    }
+
+    /* ── 교사 헤더 h1 폰트 축소 ── */
+    [data-teacher-content-header] h1 {
+      font-size: 20px !important;
+      letter-spacing: -0.02em !important;
+    }
+    [data-teacher-content-header] h1 > span {
+      font-size: 13px !important;
     }
   }
 
