@@ -39253,7 +39253,8 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
                 fontWeight: 600,
                 cursor: 'pointer',
                 flexShrink: 0
-              }
+              },
+              onClick: function onClick() { window.open('https://search.naver.com/search.naver?where=news&query=' + encodeURIComponent(art.title), '_blank'); }
             }, "\uC6D0\uBB38 \u2192"));
           })))));
         })), /*#__PURE__*/React.createElement("div", {
@@ -44850,6 +44851,7 @@ var SchoolActivityMenu = function SchoolActivityMenu(_refSA) {
       }, "\u26A0 ", art.error))), /*#__PURE__*/React.createElement(Button, {
         variant: "secondary",
         size: "sm",
+        onClick: function onClick() { window.open('https://search.naver.com/search.naver?where=news&query=' + encodeURIComponent(art.title), '_blank'); },
         style: {
           fontSize: 10,
           padding: '5px 8px'
