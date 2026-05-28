@@ -8,7 +8,7 @@ html, body, #root { height: 100%; margin: 0; padding: 0; }
     letter-spacing: -0.005em;
   }
   * { box-sizing: border-box; }
-  button { font-family: inherit; }
+  button { font-family: inherit; -webkit-appearance: none; appearance: none; }
   input, textarea { font-family: inherit; outline: none; }
   input:focus, textarea:focus { border-color: #1F3A5F !important; box-shadow: 0 0 0 3px rgba(31,58,95,0.1); }
 
