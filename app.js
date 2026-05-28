@@ -34993,7 +34993,14 @@ var GradeJourney = function GradeJourney(_ref0) {
         marginTop: 3,
         lineHeight: 1.5
       }
-    }, g.universityCompare.caption)), /*#__PURE__*/React.createElement("div", {
+    }, g.universityCompare.caption), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        color: tokens.muted,
+        marginTop: 5,
+        lineHeight: 1.5
+      }
+    }, "⚠️ 베타 버전으로, 실제 입시 결과는 반영되지 않을 수 있어요.")), /*#__PURE__*/React.createElement("div", {
       "data-univ-grid": "1",
       style: {
         display: 'grid',
