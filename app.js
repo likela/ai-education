@@ -34993,14 +34993,7 @@ var GradeJourney = function GradeJourney(_ref0) {
         marginTop: 3,
         lineHeight: 1.5
       }
-    }, g.universityCompare.caption), /*#__PURE__*/React.createElement("div", {
-      style: {
-        fontSize: 10,
-        color: tokens.muted,
-        marginTop: 5,
-        lineHeight: 1.5
-      }
-    }, "⚠️ 베타 버전으로, 실제 입시 결과는 반영되지 않을 수 있어요.")), /*#__PURE__*/React.createElement("div", {
+    }, g.universityCompare.caption)), /*#__PURE__*/React.createElement("div", {
       "data-univ-grid": "1",
       style: {
         display: 'grid',
@@ -39849,7 +39842,7 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
       style: {
         color: tokens.inkSoft
       }
-    }, "\uB300\uD559\uC54C\uB9AC\uBBF8 \xB7 \uB300\uD559\uC5B4\uB514\uAC00 API"), "\uC640 \uC5F0\uB3D9\uB418\uC5B4 \uC804 \uD559\uACFC\xB7\uC804 \uB300\uD559\uC73C\uB85C \uD655\uC7A5\uB429\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", {
+    }, "\uB300\uD559\uC54C\uB9AC\uBBF8 \xB7 \uB300\uD559\uC5B4\uB514\uAC00 API"), "\uC640 \uC5F0\uB3D9\uB418\uC5B4 \uC804 \uD559\uACFC\xB7\uC804 \uB300\uD559\uC73C\uB85C \uD655\uC7A5\uB429\uB2C8\uB2E4. \uBCA0\uD0C0 \uBC84\uC804\uC5D0\uC11C\uB294 \uC2E4\uC81C \uB370\uC774\uD130\uAC00 \uBC18\uC601\uB418\uC9C0 \uC54A\uC744 \uC218 \uC788\uC5B4\uC694.")), /*#__PURE__*/React.createElement("div", {
       style: {
         padding: 16,
         borderTop: "1px solid ".concat(tokens.line),
