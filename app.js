@@ -34677,6 +34677,7 @@ var GradeJourney = function GradeJourney(_ref0) {
     return s === 'active' ? '진행 중' : s === 'done' ? '완료' : '예정';
   };
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    "data-journey-header": "1",
     style: {
       display: 'flex',
       alignItems: 'center',
@@ -34706,6 +34707,7 @@ var GradeJourney = function GradeJourney(_ref0) {
       color: tokens.ink
     }
   }, "38\uAC74"))), /*#__PURE__*/React.createElement("div", {
+    "data-grade-grid": "1",
     style: {
       display: 'grid',
       gridTemplateColumns: 'repeat(6, 1fr)',
@@ -34992,6 +34994,7 @@ var GradeJourney = function GradeJourney(_ref0) {
         lineHeight: 1.5
       }
     }, g.universityCompare.caption)), /*#__PURE__*/React.createElement("div", {
+      "data-univ-grid": "1",
       style: {
         display: 'grid',
         gridTemplateColumns: 'repeat(3, 1fr)',
@@ -35494,6 +35497,7 @@ var LoginScreen = function LoginScreen(_ref) {
       marginBottom: 10
     }
   }, "\uB370\uBAA8 \uACC4\uC815\uC73C\uB85C \uBE60\uB974\uAC8C \uB458\uB7EC\uBCF4\uAE30"), /*#__PURE__*/React.createElement("div", {
+    "data-feedback-grid": "1",
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
@@ -41910,7 +41914,7 @@ var TeacherView = function TeacherView(_refTV) {
     onClick: function onClick() {
       return setDrawer('report');
     }
-  }, "\uD83D\uDCCA \uC0C1\uB2F4 \uB9AC\uD3EC\uD2B8"), /*#__PURE__*/React.createElement(Button, {
+  }, "\uD83D\uDCCA \uC0C1\uB2F4 \uB9AC\uD3EC\uD2B8"), /*#__PURE__*/React.createElement("div", {"data-confirm-btn-wrap": "1"}, /*#__PURE__*/React.createElement(Button, {
     variant: "primary",
     size: "md",
     disabled: stu.status === 'review' || stu.status === 'input' || stu.status === 'confirmed',
@@ -41919,7 +41923,7 @@ var TeacherView = function TeacherView(_refTV) {
       setStatusOverride(_objectSpread(_objectSpread({}, statusOverride), {}, _defineProperty({}, stu.name, 'confirmed')));
       showTToast(stu.name + ' 학생의 커리큘럼이 확정되었어요.');
     }
-  }, stu.status === 'confirmed' ? '✓ 확정 완료' : stu.status === 'review' || stu.status === 'input' ? '검토 후 확정' : '커리큘럼 확정'))), /*#__PURE__*/React.createElement(Card, {
+  }, stu.status === 'confirmed' ? '✓ 확정 완료' : stu.status === 'review' || stu.status === 'input' ? '검토 후 확정' : '커리큘럼 확정')))), /*#__PURE__*/React.createElement(Card, {
     style: {
       marginBottom: 14
     }
@@ -42025,6 +42029,7 @@ var TeacherView = function TeacherView(_refTV) {
     title: "\uD559\uC0DD\uC758 \uC9C4\uB85C \uC5EC\uC815",
     label: "\uC9111 \u2192 \uACE03 \uD65C\uB3D9 \uB204\uC801 \xB7 \uD559\uC0DD \uBAA8\uB4DC \uB3D9\uC77C"
   }, /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement("div", {
+    "data-journey-print-header": "1",
     style: {
       display: 'flex',
       alignItems: 'center',
@@ -42110,6 +42115,7 @@ var TeacherView = function TeacherView(_refTV) {
       marginBottom: 10
     }
   }, "\uD76C\uB9DD \uC9C4\uB85C \uBCC0\uD654 \uCD94\uC801"), /*#__PURE__*/React.createElement("div", {
+    "data-career-change": "1",
     style: {
       display: 'flex',
       alignItems: 'center',
@@ -42456,6 +42462,7 @@ var TeacherView = function TeacherView(_refTV) {
       marginTop: 6
     }
   }, "\u2014 \uAE40\uC120\uC601 \uC120\uC0DD\uB2D8 \xB7 ", feedbackText.length, "\uC790 \xB7 \uC790\uC720\uB86D\uAC8C \uC218\uC815\uD558\uC138\uC694")), /*#__PURE__*/React.createElement("div", {
+    "data-feedback-actions": "1",
     style: {
       display: 'flex',
       justifyContent: 'space-between',

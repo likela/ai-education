@@ -351,6 +351,97 @@ html, body, #root { height: 100%; margin: 0; padding: 0; }
       white-space: nowrap !important;
       min-height: 36px !important;
     }
+
+    /* ── 검토 후 확정 버튼: 최상단으로 ── */
+    [data-confirm-btn-wrap] {
+      order: -1 !important;
+    }
+
+    /* ── 학생의 진로 여정: PDF 출력 헤더 ── */
+    [data-journey-print-header] {
+      flex-wrap: wrap !important;
+      gap: 6px !important;
+    }
+    [data-journey-print-header] > span:first-child {
+      flex: 1 !important;
+      min-width: 0 !important;
+      word-break: keep-all !important;
+    }
+
+    /* ── 학생의 진로 여정 헤더 (진로 일관성 · 누적 활동): 좌정렬 ── */
+    [data-journey-header] {
+      justify-content: flex-start !important;
+    }
+    [data-journey-header] > div:first-child {
+      display: none !important;
+    }
+
+    /* ── 학년별 여정 그리드: 가로 스크롤 ── */
+    [data-grade-grid] {
+      display: flex !important;
+      overflow-x: auto !important;
+      gap: 8px !important;
+      -webkit-overflow-scrolling: touch !important;
+      scrollbar-width: none !important;
+      padding-bottom: 4px !important;
+      margin-bottom: 14px !important;
+    }
+    [data-grade-grid]::-webkit-scrollbar { display: none !important; }
+    [data-grade-grid] > div {
+      flex: 0 0 auto !important;
+      width: 115px !important;
+      min-width: 0 !important;
+    }
+
+    /* ── 관심 대학 비교 그리드: 가로 스크롤 ── */
+    [data-univ-grid] {
+      display: flex !important;
+      overflow-x: auto !important;
+      gap: 8px !important;
+      -webkit-overflow-scrolling: touch !important;
+      scrollbar-width: none !important;
+      padding-bottom: 4px !important;
+    }
+    [data-univ-grid]::-webkit-scrollbar { display: none !important; }
+    [data-univ-grid] > div {
+      flex: 0 0 auto !important;
+      min-width: 160px !important;
+    }
+
+    /* ── 희망 진로 변화 추적: 각 단계 줄바꿈 ── */
+    [data-career-change] {
+      flex-wrap: wrap !important;
+      align-items: center !important;
+      gap: 4px !important;
+    }
+    [data-career-change] > span:nth-child(3),
+    [data-career-change] > span:nth-child(6) {
+      flex-basis: 100% !important;
+      height: 0 !important;
+      overflow: hidden !important;
+      font-size: 0 !important;
+    }
+
+    /* ── 피드백 체크박스 그리드: 폰트 축소 ── */
+    [data-feedback-grid],
+    [data-feedback-grid] * {
+      font-size: 11px !important;
+    }
+
+    /* ── 피드백 액션 버튼 (임시저장 · 학생에게 전송): 세로 스택 ── */
+    [data-feedback-actions] {
+      flex-direction: column !important;
+      gap: 10px !important;
+    }
+    [data-feedback-actions] > div:last-child {
+      display: flex !important;
+      justify-content: flex-end !important;
+      gap: 8px !important;
+    }
+    [data-feedback-actions] > div:last-child button {
+      white-space: nowrap !important;
+      flex: 1 !important;
+    }
   }
 
   /* ── 소형 모바일 (≤ 480px) ── */
