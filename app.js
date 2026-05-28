@@ -43906,6 +43906,10 @@ var SchoolActivityMenu = function SchoolActivityMenu(_refSA) {
     _sState20 = _slicedToArray(_sState19, 2),
     confirmDelete = _sState20[0],
     setConfirmDelete = _sState20[1];
+  var _sState21 = sState(false),
+    _sState22 = _slicedToArray(_sState21, 2),
+    previewOpen = _sState22[0],
+    setPreviewOpen = _sState22[1];
   var showToast = function showToast(m) {
     setToast(m);
     setTimeout(function () {
@@ -44109,7 +44113,8 @@ var SchoolActivityMenu = function SchoolActivityMenu(_refSA) {
     state: saveState
   }), /*#__PURE__*/React.createElement(Button, {
     variant: "secondary",
-    size: "md"
+    size: "md",
+    onClick: function onClick() { return setPreviewOpen(true); }
   }, "\uD83D\uDCCB \uD559\uC0DD \uD654\uBA74 \uBBF8\uB9AC\uBCF4\uAE30"))), /*#__PURE__*/React.createElement(Card, {
     style: {
       marginBottom: 14
@@ -44995,7 +45000,7 @@ var SchoolActivityMenu = function SchoolActivityMenu(_refSA) {
     onClick: function onClick() {
       return deleteActivity(confirmDelete.id);
     }
-  }, "\uC0AD\uC81C")))), toast && /*#__PURE__*/React.createElement("div", {
+  }, "\uC0AD\uC81C")))), previewOpen && /*#__PURE__*/React.createElement("div", { onClick: function onClick() { return setPreviewOpen(false); }, style: { position: 'fixed', inset: 0, background: 'rgba(26,31,44,0.5)', zIndex: 1500, display: 'flex', justifyContent: 'flex-end', backdropFilter: 'blur(2px)' } }, /*#__PURE__*/React.createElement("div", { onClick: function onClick(e) { return e.stopPropagation(); }, className: "fadeIn", style: { width: 560, maxWidth: '92vw', height: '100%', background: tokens.bg, overflow: 'auto', boxShadow: '-20px 0 40px rgba(0,0,0,0.18)' } }, /*#__PURE__*/React.createElement("div", { style: { padding: '20px 28px', borderBottom: "1px solid ".concat(tokens.line), background: tokens.paper, display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'sticky', top: 0, zIndex: 1 } }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", { style: { fontSize: 10, fontWeight: 700, color: tokens.accent, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 3 } }, "학생 화면 미리보기"), /*#__PURE__*/React.createElement("div", { style: { fontSize: 17, fontWeight: 700, color: tokens.ink } }, "우리 학교 비교과 활동")), /*#__PURE__*/React.createElement(Button, { variant: "secondary", size: "sm", style: { fontSize: 12 }, onClick: function onClick() { return setPreviewOpen(false); } }, "닫기 \u2715")), /*#__PURE__*/React.createElement("div", { style: { padding: '20px 28px' } }, /*#__PURE__*/React.createElement("div", { style: { fontSize: 12, color: tokens.muted, marginBottom: 18, lineHeight: 1.6, padding: '10px 14px', background: tokens.lineSoft, borderRadius: 8 } }, "아래는 학생이 보는 학교 운영 활동 목록 미리보기예요. 활성화된 활동만 학생 화면에 노출됩니다."), SCHOOL_ACT_CATS.map(function(c) { var items = (activities[c.id] || []).filter(function(a) { return a.active; }); if (!items.length) return null; return /*#__PURE__*/React.createElement("div", { key: c.id, style: { marginBottom: 22 } }, /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 } }, /*#__PURE__*/React.createElement("div", { style: { width: 26, height: 26, borderRadius: 6, background: c.color, color: '#fff', display: 'grid', placeItems: 'center', fontSize: 13 } }, c.icon), /*#__PURE__*/React.createElement("div", { style: { fontSize: 14, fontWeight: 700, color: tokens.ink } }, c.name), /*#__PURE__*/React.createElement("div", { style: { fontSize: 12, color: tokens.muted } }, "\xB7 " + items.length + "\uAC1C")), items.map(function(a) { return /*#__PURE__*/React.createElement(Card, { key: a.id, style: { marginBottom: 8, padding: 12 } }, /*#__PURE__*/React.createElement("div", { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8 } }, /*#__PURE__*/React.createElement("div", { style: { flex: 1 } }, /*#__PURE__*/React.createElement("div", { style: { fontSize: 13, fontWeight: 700, color: tokens.ink, marginBottom: 3 } }, a.name), /*#__PURE__*/React.createElement("div", { style: { fontSize: 11, color: tokens.muted, lineHeight: 1.5 } }, a.desc)), /*#__PURE__*/React.createElement("div", { style: { display: 'flex', gap: 3, flexWrap: 'wrap', justifyContent: 'flex-end', flexShrink: 0 } }, (a.grades || []).map(function(g) { return /*#__PURE__*/React.createElement(Pill, { key: g, tone: "navy", size: "xs" }, g); })))); })); })) )), toast && /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'fixed',
       bottom: 32,
