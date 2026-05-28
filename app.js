@@ -33668,6 +33668,52 @@ var ACTIVITIES = [{
   output: '봉사 누적 64시간 목표',
   status: 'existing'
 }];
+var ALT_ACTIVITIES = [{
+  id: 'alt1',
+  category: '탐구',
+  title: '의료 빅데이터와 AI 진단 기술의 윤리적 쟁점 탐구',
+  why: 'AI 의료 기술 트렌드와 의대 입시 면접 키워드를 반영한 심화 탐구 활동이에요.',
+  source: '의대 입시 트렌드 + 학생 관심 키워드 분석',
+  duration: '8주',
+  output: '탐구 보고서 + 발표',
+  status: 'new'
+}, {
+  id: 'alt2',
+  category: '독서',
+  title: '이반 일리치의 죽음 — 생의 마지막과 인간 존엄',
+  why: '의료 인문학 영역 보완 — 삶·죽음의 의학적·윤리적 시각을 넓혀요.',
+  source: '의대 면접 추천 독서 목록',
+  duration: '3주',
+  output: '독후감 + 토론 발제문',
+  status: 'new'
+}, {
+  id: 'alt3',
+  category: '동아리',
+  title: '과학 토론 동아리 — 의학 윤리 주제 발표 세션 기획',
+  why: '동아리 활동 심화 — 토론 역량 및 의학 윤리 발표 경험을 쌓아요.',
+  source: '기존 동아리 활동 연계 심화',
+  duration: '학기 단위',
+  output: '발표 자료 + 토론 기록',
+  status: 'new'
+}, {
+  id: 'alt4',
+  category: '봉사',
+  title: '요양원 정기 방문 봉사 — 노인 의료 공감 활동',
+  why: '봉사 영역 다양화 — 소아청소년 외 노인 의료 분야 공감 역량을 더해요.',
+  source: '봉사 영역 균형 진단',
+  duration: '월 2회',
+  output: '봉사 활동 일지',
+  status: 'new'
+}, {
+  id: 'alt5',
+  category: '체험',
+  title: '의과대학 Open Lab 탐방 — 실험실 연구 체험',
+  why: '연구 의사 트랙을 직접 경험하며 진로 방향을 확인해요.',
+  source: '대학 오픈캠퍼스 프로그램',
+  duration: '1일 + 보고서 2주',
+  output: '체험 보고서',
+  status: 'new'
+}];
 var TEACHER_NOTES = [{
   author: '김선영 진로교사',
   date: '2026.05.08',
@@ -38156,6 +38202,10 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
   var _csTP = _slicedToArray(_uStateCST, 2);
   var _csToastMsg = _csTP[0]; var _setCsToast = _csTP[1];
   var showToast = function showToast(msg) { _setCsToast(msg); setTimeout(function() { _setCsToast(''); }, 2400); };
+  var _uStateAR = uState(false),
+    _arP = _slicedToArray(_uStateAR, 2),
+    altRec = _arP[0],
+    setAltRec = _arP[1];
 
     var _derivedSubtopics = {};
   if (schoolActivitiesCS && userNameCS) {
@@ -38895,9 +38945,9 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
       fontWeight: 600,
       cursor: 'pointer'
     },
-    onClick: function onClick() { showToast('\uc0c8\ub85c\uc6b4 \ub9de\ucda4 \ucd94\ucc9c\uc744 \ubd88\ub7ec\uc624\ub294 \uc911\uc785\ub2c8\ub2e4. (\ubca0\ud0c0 \ubc84\uc804\uc5d0\uc11c\ub294 \uc800\uc7a5\ub418\uc9c0 \uc54a\uc544\uc694)'); }
-  }, "\uB2E4\uB978 \uCD94\uCC9C \uBCF4\uAE30 \u2192"))), ['탐구', '독서', '동아리', '봉사', '체험'].map(function (cat) {
-    var _allActs = getActiveActivities() || ACTIVITIES;
+    onClick: function onClick() { setAltRec(function(v) { return !v; }); showToast(altRec ? '\uCC98\uC74C \uCD94\uCC9C\uC73C\uB85C \uB3CC\uC544\uC654\uC5B4\uC694.' : '\uB2E4\uB978 \uB9DE\uCDA4 \uCD94\uCC9C\uC744 \uBD88\uB7EC\uC654\uC5B4\uC694.'); }
+  }, altRec ? "\uCC98\uC74C \uCD94\uCC9C \uBCF4\uAE30 \u2190" : "\uB2E4\uB978 \uCD94\uCC9C \uBCF4\uAE30 \u2192"))), ['탐구', '독서', '동아리', '봉사', '체험'].map(function (cat) {
+    var _allActs = altRec ? ALT_ACTIVITIES : (getActiveActivities() || ACTIVITIES);
     var items = _allActs.filter(function (a) {
       return a.category === cat;
     });
