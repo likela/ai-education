@@ -39348,7 +39348,7 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
     style: {
       fontSize: 13,
       fontWeight: 700,
-      color: tokens.ink,
+      color: '#fff',
       letterSpacing: '-0.01em'
     }
   }, "\uC9C1\uC811 \uCD94\uAC00\uD558\uACE0 \uC2F6\uC740 \uD65C\uB3D9"), /*#__PURE__*/React.createElement("div", {
