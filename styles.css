@@ -388,6 +388,25 @@ html, body, #root { height: 100%; margin: 0; padding: 0; }
       display: none !important;
     }
 
+    /* ── 학생 대시보드 내 학년별 여정: block 변환 규칙 덮어쓰기 ── */
+    [data-screen-label] [data-grade-grid] {
+      display: flex !important;
+      overflow-x: auto !important;
+      flex-wrap: nowrap !important;
+      gap: 8px !important;
+      -webkit-overflow-scrolling: touch !important;
+      scrollbar-width: none !important;
+      padding-bottom: 4px !important;
+      margin-bottom: 14px !important;
+    }
+    [data-screen-label] [data-grade-grid]::-webkit-scrollbar { display: none !important; }
+    [data-screen-label] [data-grade-grid] > div {
+      flex: 0 0 auto !important;
+      width: 115px !important;
+      min-width: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
     /* ── 학생 서비스 내 학년별 여정: block 변환 규칙 덮어쓰기 (특이도 동일 + 나중 선언) ── */
     [data-student-scroll] [data-grade-grid] {
       display: flex !important;
