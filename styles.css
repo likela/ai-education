@@ -388,8 +388,8 @@ html, body, #root { height: 100%; margin: 0; padding: 0; }
       display: none !important;
     }
 
-    /* ── 학생 대시보드 내 학년별 여정: block 변환 규칙 덮어쓰기 ── */
-    [data-screen-label] [data-grade-grid] {
+    /* ── 학년별 여정 그리드: 가로 스크롤 (#root ID로 최고 특이도 확보) ── */
+    #root [data-grade-grid] {
       display: flex !important;
       overflow-x: auto !important;
       flex-wrap: nowrap !important;
@@ -399,48 +399,12 @@ html, body, #root { height: 100%; margin: 0; padding: 0; }
       padding-bottom: 4px !important;
       margin-bottom: 14px !important;
     }
-    [data-screen-label] [data-grade-grid]::-webkit-scrollbar { display: none !important; }
-    [data-screen-label] [data-grade-grid] > div {
+    #root [data-grade-grid]::-webkit-scrollbar { display: none !important; }
+    #root [data-grade-grid] > div {
       flex: 0 0 auto !important;
       width: 115px !important;
       min-width: 0 !important;
       margin-bottom: 0 !important;
-    }
-
-    /* ── 학생 서비스 내 학년별 여정: block 변환 규칙 덮어쓰기 (특이도 동일 + 나중 선언) ── */
-    [data-student-scroll] [data-grade-grid] {
-      display: flex !important;
-      overflow-x: auto !important;
-      flex-wrap: nowrap !important;
-      gap: 8px !important;
-      -webkit-overflow-scrolling: touch !important;
-      scrollbar-width: none !important;
-      padding-bottom: 4px !important;
-      margin-bottom: 14px !important;
-    }
-    [data-student-scroll] [data-grade-grid]::-webkit-scrollbar { display: none !important; }
-    [data-student-scroll] [data-grade-grid] > div {
-      flex: 0 0 auto !important;
-      width: 115px !important;
-      min-width: 0 !important;
-      margin-bottom: 0 !important;
-    }
-
-    /* ── 학년별 여정 그리드: 가로 스크롤 ── */
-    [data-grade-grid] {
-      display: flex !important;
-      overflow-x: auto !important;
-      gap: 8px !important;
-      -webkit-overflow-scrolling: touch !important;
-      scrollbar-width: none !important;
-      padding-bottom: 4px !important;
-      margin-bottom: 14px !important;
-    }
-    [data-grade-grid]::-webkit-scrollbar { display: none !important; }
-    [data-grade-grid] > div {
-      flex: 0 0 auto !important;
-      width: 115px !important;
-      min-width: 0 !important;
     }
 
     /* ── 관심 대학 비교 그리드: 가로 스크롤 ── */
