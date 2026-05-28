@@ -42804,8 +42804,9 @@ var TeacherView = function TeacherView(_refTV) {
       marginTop: 4
     }
   }, drawer === 'setteuk' ? '누적 활동 14건 기반 · 검토 후 학생부에 활용해 주세요' : '2026.05.10 생성 · 14건 활동·3회 상담 이력 반영')), /*#__PURE__*/React.createElement(Button, {
-    variant: "ghost",
+    variant: "secondary",
     size: "sm",
+    style: { fontSize: 12 },
     onClick: function onClick() {
       return setDrawer(null);
     }
@@ -42861,7 +42862,8 @@ var TeacherView = function TeacherView(_refTV) {
         fontSize: 11,
         color: tokens.muted,
         cursor: 'pointer'
-      }
+      },
+      onClick: function onClick() { return showTToast('\uBB38\uC7A5\uC744 \uB2E4\uC2DC \uC0DD\uC131\uD588\uC5B4\uC694.'); }
     }, "\uB2E4\uC2DC \uC0DD\uC131"), /*#__PURE__*/React.createElement("span", {
       style: {
         fontSize: 11,
@@ -42904,7 +42906,8 @@ var TeacherView = function TeacherView(_refTV) {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      gap: 12
+      gap: 12,
+      flexWrap: 'wrap'
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
