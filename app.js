@@ -39354,7 +39354,7 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
   }, "\uC9C1\uC811 \uCD94\uAC00\uD558\uACE0 \uC2F6\uC740 \uD65C\uB3D9"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 11,
-      color: tokens.muted
+      color: '#fff'
     }
   }, "\uCD94\uCC9C\uC5D0 \uC5C6\uC9C0\uB9CC \uD574\uBCF4\uACE0 \uC2F6\uC740 \uD65C\uB3D9\uC744 \uC801\uC5B4\uC8FC\uC138\uC694")), /*#__PURE__*/React.createElement(Card, {
     style: {
@@ -39376,6 +39376,12 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
       marginBottom: 8
     }
   }), /*#__PURE__*/React.createElement("div", {
+    style: { display: 'flex', justifyContent: 'flex-end', marginBottom: 8 }
+  }, /*#__PURE__*/React.createElement(Button, {
+    variant: "primary",
+    size: "sm",
+    onClick: function onClick() { showToast('\ud65c\ub3d9\uc774 \ucd94\uac00\ub418\uc5c8\uc5b4\uc694.'); }
+  }, '\ud65c\ub3d9 \ucd94\uac00')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 11,
       color: tokens.green,
