@@ -41494,6 +41494,14 @@ var TeacherView = function TeacherView(_refTV) {
       return setTToast('');
     }, 2400);
   };
+  var _draftSet0 = [{tag:'교과 세특 · 생명과학 II',body:'교내 의학 학술 동아리 부장으로 활동하며 청소년기 뇌 가소성과 학습 능력 변화에 관한 8주간의 탐구 보고서를 작성함. 생명과학 II에서 학습한 신경계 단원을 실제 사례 분석에 적용하여 인지 발달과 환경의 상호작용을 다각도로 고찰함. 교과 학습을 자신의 진로 관심과 연결하는 능동적 탐구 자세가 인상적임.'},{tag:'독서활동상황',body:'「환자가 된 의사들」을 통해 의료인의 시선과 환자의 시선을 비교 분석하고, 의료 윤리 영역의 토론 발제문을 작성함. 임상 현장에서의 공감과 윤리적 판단의 균형에 대한 자기 견해를 논리적으로 정리함.'},{tag:'진로활동',body:'아동복지센터에서 누적 32시간 학습 멘토링 봉사를 수행하며 소아청소년기 발달 특성을 직접 관찰함. 향후 소아청소년과 의사로서 환자 중심 의료를 실천하고자 하는 진로 방향을 구체화함.'}];
+  var _draftSet1 = [{tag:'교과 세특 · 생명과학 II',body:'의학 학술 동아리 부장으로서 청소년기 뇌 가소성 주제를 8주간 심층 탐구하여 보고서를 완성함. 생명과학 II 신경계 단원과 연계하여 인지 발달 사례를 분석하고 학습 능력 향상의 과학적 근거를 도출함. 탐구 전 과정에서 능동적 자세와 논리적 사고를 발휘하며 교과 학습을 진로 관심과 유기적으로 연결함.'},{tag:'독서활동상황',body:'「환자가 된 의사들」 독서 후 의료인과 환자 시각의 차이를 심층 비교하고 의료 윤리 토론 발제문을 주도적으로 작성함. 공감 능력과 윤리적 판단이 임상 현장에서 균형을 이루는 방식에 대해 논리적 견해를 정리함.'},{tag:'진로활동',body:'아동복지센터 학습 멘토링(누적 32시간)에서 소아청소년기 발달 특성을 직접 관찰하고 체득함. 현장 경험을 바탕으로 소아청소년과 의사로서 환자 중심 의료를 실천하겠다는 구체적인 진로 비전을 수립함.'}];
+  var _uStateDraftV = uState(0);
+  var _draftVArr = _slicedToArray(_uStateDraftV, 2);
+  var _draftV = _draftVArr[0]; var _setDraftV = _draftVArr[1];
+  var _currentDrafts = _draftV % 2 === 0 ? _draftSet0 : _draftSet1;
+  var _getAllDraftText = function() { return _currentDrafts.map(function(s) { return '[' + s.tag + ']\n' + s.body; }).join('\n\n'); };
+  var _exportWord = function() { var rows = _currentDrafts.map(function(s) { return '<h3 style="color:#1F3A5F;margin-top:24px;margin-bottom:8px">' + s.tag + '</h3><p style="line-height:1.9;color:#333;margin:0">' + s.body + '</p>'; }).join(''); var html = '<html><head><meta charset="utf-8"></head><body style="font-family:sans-serif;padding:40px;max-width:720px">' + rows + '</body></html>'; var blob = new Blob([html], {type: 'application/msword'}); var url = URL.createObjectURL(blob); var el = document.createElement('a'); el.href = url; el.download = '\uc138\ud2b9\ucd08\uc548_' + stu.name + '.doc'; el.click(); setTimeout(function() { URL.revokeObjectURL(url); }, 1000); };
   // 과목 유지/제외 결정 (학생별 독립)
   var _uState63 = uState({}),
     _uState64 = _slicedToArray(_uState63, 2),
@@ -42827,16 +42835,7 @@ var TeacherView = function TeacherView(_refTV) {
       color: tokens.amber,
       lineHeight: 1.6
     }
-  }, "\u26A0 ", /*#__PURE__*/React.createElement("b", null, "\uCC38\uACE0\uC6A9 \uCD08\uC548\uC785\uB2C8\uB2E4."), " \uD559\uC0DD\uBD80 \uAE30\uC7AC \uC804 \uBC18\uB4DC\uC2DC \uC0AC\uC2E4\uAD00\uACC4 \uD655\uC778 \uD6C4 \uC218\uC815\xB7\uBCF4\uC644\uD574\uC8FC\uC138\uC694. AI\uB294 \uB204\uC801\uB41C \uD65C\uB3D9 \uAE30\uB85D\uB9CC \uCC38\uACE0\uD558\uBA70, \uAD50\uC0AC\uC758 \uC9C1\uC811 \uAD00\uCC30 \uB0B4\uC6A9\uC744 \uB300\uCCB4\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.")), [{
-    tag: '교과 세특 · 생명과학 II',
-    body: '교내 의학 학술 동아리 부장으로 활동하며 청소년기 뇌 가소성과 학습 능력 변화에 관한 8주간의 탐구 보고서를 작성함. 생명과학 II에서 학습한 신경계 단원을 실제 사례 분석에 적용하여 인지 발달과 환경의 상호작용을 다각도로 고찰함. 교과 학습을 자신의 진로 관심과 연결하는 능동적 탐구 자세가 인상적임.'
-  }, {
-    tag: '독서활동상황',
-    body: '「환자가 된 의사들」을 통해 의료인의 시선과 환자의 시선을 비교 분석하고, 의료 윤리 영역의 토론 발제문을 작성함. 임상 현장에서의 공감과 윤리적 판단의 균형에 대한 자기 견해를 논리적으로 정리함.'
-  }, {
-    tag: '진로활동',
-    body: '아동복지센터에서 누적 32시간 학습 멘토링 봉사를 수행하며 소아청소년기 발달 특성을 직접 관찰함. 향후 소아청소년과 의사로서 환자 중심 의료를 실천하고자 하는 진로 방향을 구체화함.'
-  }].map(function (s, i) {
+  }, "\u26A0 ", /*#__PURE__*/React.createElement("b", null, "\uCC38\uACE0\uC6A9 \uCD08\uC548\uC785\uB2C8\uB2E4."), " \uD559\uC0DD\uBD80 \uAE30\uC7AC \uC804 \uBC18\uB4DC\uC2DC \uC0AC\uC2E4\uAD00\uACC4 \uD655\uC778 \uD6C4 \uC218\uC815\xB7\uBCF4\uC644\uD574\uC8FC\uC138\uC694. AI\uB294 \uB204\uC801\uB41C \uD65C\uB3D9 \uAE30\uB85D\uB9CC \uCC38\uACE0\uD558\uBA70, \uAD50\uC0AC\uC758 \uC9C1\uC811 \uAD00\uCC30 \uB0B4\uC6A9\uC744 \uB300\uCCB4\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.")), _currentDrafts.map(function (s, i) {
     return /*#__PURE__*/React.createElement(Card, {
       key: i,
       style: {
@@ -42863,7 +42862,7 @@ var TeacherView = function TeacherView(_refTV) {
         color: tokens.muted,
         cursor: 'pointer'
       },
-      onClick: function onClick() { return showTToast('\uBB38\uC7A5\uC744 \uB2E4\uC2DC \uC0DD\uC131\uD588\uC5B4\uC694.'); }
+      onClick: function onClick() { _setDraftV(function(v) { return v + 1; }); showTToast('\uCD08\uC548\uC744 \uB2E4\uC2DC \uC0DD\uC131\uD588\uC5B4\uC694.'); }
     }, "\uB2E4\uC2DC \uC0DD\uC131"), /*#__PURE__*/React.createElement("span", {
       style: {
         fontSize: 11,
@@ -42872,7 +42871,7 @@ var TeacherView = function TeacherView(_refTV) {
         cursor: 'pointer'
       },
       onClick: function onClick() {
-        return showTToast('문장이 클립보드에 복사되었어요.');
+        navigator.clipboard.writeText(s.body).then(function() { showTToast('문장이 클립보드에 복사되었어요.'); });
       }
     }, "\uBCF5\uC0AC")), /*#__PURE__*/React.createElement("div", {
       style: {
@@ -42924,13 +42923,13 @@ var TeacherView = function TeacherView(_refTV) {
     variant: "secondary",
     size: "sm",
     onClick: function onClick() {
-      return showTToast('전체 초안이 클립보드에 복사되었어요.');
+      navigator.clipboard.writeText(_getAllDraftText()).then(function() { showTToast('전체 초안이 클립보드에 복사되었어요.'); });
     }
   }, "\uD83D\uDCCB \uC804\uCCB4 \uBCF5\uC0AC"), /*#__PURE__*/React.createElement(Button, {
     variant: "primary",
     size: "sm",
     onClick: function onClick() {
-      return showTToast('워드 파일로 다운로드되었어요.');
+      _exportWord(); showTToast('워드 파일로 다운로드되었어요.');
     }
   }, "\u2B07 Word \uB0B4\uBCF4\uB0B4\uAE30"))))), drawer === 'report' && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Card, {
     style: {
