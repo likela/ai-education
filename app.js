@@ -38151,6 +38151,10 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
     _uState30 = _slicedToArray(_uState29, 2),
     selectedSubtopics = _uState30[0],
     setSelectedSubtopics = _uState30[1];
+  var _uStateCST = uState('');
+  var _csTP = _slicedToArray(_uStateCST, 2);
+  var _csToastMsg = _csTP[0]; var _setCsToast = _csTP[1];
+  var showToast = function showToast(msg) { _setCsToast(msg); setTimeout(function() { _setCsToast(''); }, 2400); };
 
     var _derivedSubtopics = {};
   if (schoolActivitiesCS && userNameCS) {
@@ -38242,7 +38246,9 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
     style: {
       maxWidth: 1040
     }
-  }, /*#__PURE__*/React.createElement(Section, {
+  }, _csToastMsg && /*#__PURE__*/React.createElement("div", {
+    style: { position: 'fixed', bottom: 32, left: '50%', transform: 'translateX(-50%)', background: 'rgba(26,31,44,0.92)', color: '#fff', padding: '12px 24px', borderRadius: 10, fontSize: 13, fontWeight: 600, zIndex: 9999, pointerEvents: 'none', whiteSpace: 'nowrap' }
+  }, _csToastMsg), /*#__PURE__*/React.createElement(Section, {
     label: "STEP 03 \xB7 \uAD50\uC0AC\uC640 \uD568\uAED8 \uC124\uACC4",
     title: "\uACFC\uBAA9\xB7\uD65C\uB3D9 \uCD08\uC548\uC744 \uD655\uC778\uD574 \uBCF4\uC138\uC694",
     action: /*#__PURE__*/React.createElement(Pill, {
