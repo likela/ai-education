@@ -38887,7 +38887,8 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
       color: tokens.accent,
       fontWeight: 600,
       cursor: 'pointer'
-    }
+    },
+    onClick: function onClick() { showToast('\uc0c8\ub85c\uc6b4 \ub9de\ucda4 \ucd94\ucc9c\uc744 \ubd88\ub7ec\uc624\ub294 \uc911\uc785\ub2c8\ub2e4. (\ubca0\ud0c0 \ubc84\uc804\uc5d0\uc11c\ub294 \uc800\uc7a5\ub418\uc9c0 \uc54a\uc544\uc694)'); }
   }, "\uB2E4\uB978 \uCD94\uCC9C \uBCF4\uAE30 \u2192"))), ['탐구', '독서', '동아리', '봉사', '체험'].map(function (cat) {
     var _allActs = getActiveActivities() || ACTIVITIES;
     var items = _allActs.filter(function (a) {
@@ -39067,6 +39068,7 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
       }, ['이미 해봤어요', '관심 없어요', '더 심화된 걸로'].map(function (r) {
         return /*#__PURE__*/React.createElement("span", {
           key: r,
+          onClick: function onClick() { showToast(r + ' \uc758\uacac\uc774 \ubc18\uc601\ub418\uc5c8\uc5b4\uc694.'); },
           style: {
             padding: '4px 8px',
             borderRadius: 12,
@@ -39258,6 +39260,16 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
             }, "\uC6D0\uBB38 \u2192"));
           })))));
         })), /*#__PURE__*/React.createElement("div", {
+          style: {
+            display: 'flex',
+            justifyContent: 'flex-end',
+            marginTop: 8
+          }
+        }, /*#__PURE__*/React.createElement(Button, {
+          variant: "primary",
+          size: "sm",
+          onClick: function onClick() { showToast('\uc138\ubd80 \uc8fc\uc81c \uc120\ud0dd\uc774 \uc800\uc7a5\ub418\uc5c8\uc5b4\uc694.'); }
+        }, '\uc120\ud0dd \uc800\uc7a5')), /*#__PURE__*/React.createElement("div", {
           style: {
             marginTop: 10,
             padding: '10px 12px',
@@ -39740,7 +39752,7 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
         color: tokens.muted,
         marginTop: 8
       }
-    }, "\uC120\uD0DD: ", compareUnivs.length, "/3 \xB7 \uAC19\uC740 \uCE74\uB4DC\uB97C \uB2E4\uC2DC \uB204\uB974\uBA74 \uD574\uC81C\uB429\uB2C8\uB2E4")), /*#__PURE__*/React.createElement("div", {
+    }, "\uC120\uD0DD: ", compareUnivs.length, "/3 \xB7 \uAC19\uC740 \uCE74\uB4DC\uB97C \uB2E4\uC2DC \uB204\uB974\uBA74 \uD574\uC81C\uB429\uB2C8\uB2E4 \xB7 \uBCA0\uD0C0 \uBC84\uC804\uC5D0\uC11C\uB294 \uBCC0\uACBD \uB0B4\uC6A9\uC774 \uC800\uC7A5\uB418\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4")), /*#__PURE__*/React.createElement("div", {
       style: {
         padding: '4px 24px 16px'
       }
