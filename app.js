@@ -40727,7 +40727,7 @@ var FinalScreen = function FinalScreen(_ref7) {
       textTransform: 'uppercase',
       marginBottom: 12
     }
-  }, "\uACE02 \uD655\uC815 \uBE44\uAD50\uACFC \uD65C\uB3D9"), ACTIVITIES.slice(0, 4).map(function (a) {
+  }, "\uACE02 \uD655\uC815 \uBE44\uAD50\uACFC \uD65C\uB3D9"), [].concat(extraRecords.map(function(r, i) { return { id: 'user_' + i, category: r.cat, title: r.title, duration: r.when || '방금', output: r.reflection || r.body || '' }; }), ACTIVITIES.slice(0, 4)).map(function (a) {
     return /*#__PURE__*/React.createElement("div", {
       key: a.id,
       style: {
