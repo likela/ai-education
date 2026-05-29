@@ -40214,7 +40214,7 @@ var FinalScreen = function FinalScreen(_ref7) {
     _uState40 = _slicedToArray(_uState39, 2),
     toast = _uState40[0],
     setToast = _uState40[1];
-  var _uState41 = uState(false),
+  var _uState41 = uState(null),
     _uState42 = _slicedToArray(_uState41, 2),
     reflectOpen = _uState42[0],
     setReflectOpen = _uState42[1];
@@ -40222,6 +40222,10 @@ var FinalScreen = function FinalScreen(_ref7) {
     _uState44 = _slicedToArray(_uState43, 2),
     reflectText = _uState44[0],
     setReflectText = _uState44[1];
+  var _uState47 = uState({}),
+    _uState48 = _slicedToArray(_uState47, 2),
+    itemReflections = _uState48[0],
+    setItemReflections = _uState48[1];
   var _uState45 = uState('전체'),
     _uState46 = _slicedToArray(_uState45, 2),
     historyCat = _uState46[0],
@@ -41222,7 +41226,7 @@ var FinalScreen = function FinalScreen(_ref7) {
           color: tokens.inkSoft,
           lineHeight: 1.65
         }
-      }, it.reflection), it.state === 'in-progress' && (reflectOpen ? /*#__PURE__*/React.createElement("div", {
+      }, it.reflection), it.state === 'in-progress' && (reflectOpen === i ? /*#__PURE__*/React.createElement("div", {
         style: {
           marginTop: 10
         },
@@ -41266,7 +41270,7 @@ var FinalScreen = function FinalScreen(_ref7) {
         variant: "ghost",
         size: "sm",
         onClick: function onClick() {
-          setReflectOpen(false);
+          setReflectOpen(null);
           setReflectText('');
         }
       }, "\uCDE8\uC18C"), /*#__PURE__*/React.createElement(Button, {
@@ -41274,8 +41278,8 @@ var FinalScreen = function FinalScreen(_ref7) {
         size: "sm",
         disabled: !reflectText.trim(),
         onClick: function onClick() {
-          setRec(function(prev) { return _objectSpread(_objectSpread({}, prev), {}, { reflection: reflectText }); });
-          setReflectOpen(false);
+          setItemReflections(function(prev) { return _objectSpread({}, prev, _defineProperty({}, i, reflectText)); });
+          setReflectOpen(null);
           setReflectText('');
           showToast('회고가 저장되었어요. 세특 초안에 반영할게요.');
         }
@@ -41290,21 +41294,21 @@ var FinalScreen = function FinalScreen(_ref7) {
           fontWeight: 600,
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: rec.reflection ? 'flex-start' : 'center',
+          alignItems: itemReflections[i] ? 'flex-start' : 'center',
           cursor: 'pointer'
         },
         onClick: function onClick() {
-          setReflectText(rec.reflection || '');
-          setReflectOpen(true);
+          setReflectText(itemReflections[i] || '');
+          setReflectOpen(i);
         }
-      }, /*#__PURE__*/React.createElement("span", { style: { flex: 1, whiteSpace: 'pre-wrap', lineHeight: 1.5 } }, rec.reflection || "\xAB\uC774 \uD65C\uB3D9\uC774 \uB098\uC5D0\uAC8C \uC5B4\uB5A4 \uC758\uBBF8\uC600\uB098\uC694?\xBB \uD68C\uACE0 \uC785\uB825 \uB300\uAE30"), /*#__PURE__*/React.createElement("span", {
+      }, /*#__PURE__*/React.createElement("span", { style: { flex: 1, whiteSpace: 'pre-wrap', lineHeight: 1.5 } }, itemReflections[i] || "\xAB\uC774 \uD65C\uB3D9\uC774 \uB098\uC5D0\uAC8C \uC5B4\uB5A4 \uC758\uBBF8\uC600\uB098\uC694?\xBB \uD68C\uACE0 \uC785\uB825 \uB300\uAE30"), /*#__PURE__*/React.createElement("span", {
         style: {
           cursor: 'pointer',
           userSelect: 'none',
           marginLeft: 8,
           flexShrink: 0
         }
-      }, rec.reflection ? "\u2728 \uC218\uC815" : "+ \uC785\uB825")))));
+      }, itemReflections[i] ? "\u2728 \uC218\uC815" : "+ \uC785\uB825")))));
     })));
   }(), /*#__PURE__*/React.createElement(Card, {
     style: {
