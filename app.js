@@ -40324,13 +40324,24 @@ var FinalScreen = function FinalScreen(_ref7) {
     style: {
       textAlign: 'right'
     }
-  }, /*#__PURE__*/React.createElement(Pill, {
-    tone: "green",
-    size: "xs"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 5,
+      background: "rgba(255,255,255,0.18)",
+      border: "1px solid rgba(255,255,255,0.35)",
+      color: "#fff",
+      padding: "5px 12px",
+      borderRadius: 999,
+      fontSize: 13,
+      fontWeight: 700,
+      whiteSpace: "nowrap"
+    }
   }, "\u2713 \uAD50\uC0AC \uD655\uC815"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
-      opacity: 0.7,
+      fontSize: 11,
+      color: "rgba(255,255,255,0.65)",
       marginTop: 6
     }
   }, "2026.05.10 \uD655\uC815")))), /*#__PURE__*/React.createElement(Card, {
