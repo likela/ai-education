@@ -41096,7 +41096,9 @@ var FinalScreen = function FinalScreen(_ref7) {
       tone: 'neutral'
     }];
     var CATS = ['전체', '교과', '탐구', '독서', '동아리', '봉사', '이력'];
-    var filtered = historyCat === '전체' ? HISTORY : HISTORY.filter(function (h) {
+    var _toneMap = { '교과': 'navy', '탐구': 'navy', '독서': 'accent', '동아리': 'green', '봉사': 'green', '이력': 'neutral' };
+    var allRecords = extraRecords.map(function(r) { return { date: r.when || '방금', cat: r.cat, title: r.title, state: 'in-progress', reflection: r.reflection || r.body || '', tone: _toneMap[r.cat] || 'navy' }; }).concat(HISTORY);
+    var filtered = historyCat === '전체' ? allRecords : allRecords.filter(function (h) {
       return h.cat === historyCat;
     });
     return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
@@ -41107,7 +41109,7 @@ var FinalScreen = function FinalScreen(_ref7) {
         flexWrap: 'wrap'
       }
     }, CATS.map(function (cat) {
-      var count = cat === '전체' ? HISTORY.length : HISTORY.filter(function (h) {
+      var count = cat === '전체' ? allRecords.length : allRecords.filter(function (h) {
         return h.cat === cat;
       }).length;
       var on = historyCat === cat;
