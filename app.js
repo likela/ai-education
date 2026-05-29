@@ -39413,13 +39413,13 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
     style: {
       fontSize: 13,
       fontWeight: 700,
-      color: '#fff',
+      color: isMobileCS ? '#fff' : tokens.ink,
       letterSpacing: '-0.01em'
     }
   }, "\uC9C1\uC811 \uCD94\uAC00\uD558\uACE0 \uC2F6\uC740 \uD65C\uB3D9"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 11,
-      color: '#fff'
+      color: isMobileCS ? '#fff' : tokens.inkSoft
     }
   }, "\uCD94\uCC9C\uC5D0 \uC5C6\uC9C0\uB9CC \uD574\uBCF4\uACE0 \uC2F6\uC740 \uD65C\uB3D9\uC744 \uC801\uC5B4\uC8FC\uC138\uC694")), /*#__PURE__*/React.createElement(Card, {
     style: {
