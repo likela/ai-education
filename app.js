@@ -42884,8 +42884,11 @@ var TeacherView = function TeacherView(_refTV) {
           alignItems: 'center',
           gap: 8,
           marginBottom: 6,
-          flexWrap: 'wrap'
+          flexWrap: 'wrap',
+          justifyContent: 'space-between'
         }
+      }, /*#__PURE__*/React.createElement("div", {
+        style: { display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', flex: 1 }
       }, /*#__PURE__*/React.createElement(Pill, {
         tone: h.tone,
         size: "xs"
@@ -42899,7 +42902,15 @@ var TeacherView = function TeacherView(_refTV) {
       }, h.title), h.fresh && /*#__PURE__*/React.createElement(Pill, {
         tone: "green",
         size: "xs"
-      }, "\uC0C8 \uBA54\uBAA8")), /*#__PURE__*/React.createElement("div", {
+      }, "\uC0C8 \uBA54\uBAA8")), _isUserMemo && /*#__PURE__*/React.createElement("button", {
+        onClick: function onClick(e) {
+          e.stopPropagation();
+          setTeacherMemos(_objectSpread(_objectSpread({}, teacherMemos), {}, _defineProperty({}, stu.name, _stuMemos.filter(function(m) { return m !== h; }))));
+        },
+        style: { background: 'none', border: '1px solid ' + tokens.line, borderRadius: 5, padding: '3px 8px', fontSize: 11, color: tokens.muted, cursor: 'pointer', flexShrink: 0, lineHeight: 1 },
+        onMouseEnter: function(e) { e.currentTarget.style.borderColor = tokens.red; e.currentTarget.style.color = tokens.red; },
+        onMouseLeave: function(e) { e.currentTarget.style.borderColor = tokens.line; e.currentTarget.style.color = tokens.muted; }
+      }, "\u2715 \uC0AD\uC81C")), /*#__PURE__*/React.createElement("div", {
         style: {
           fontSize: 12,
           color: tokens.inkSoft,
@@ -42930,26 +42941,7 @@ var TeacherView = function TeacherView(_refTV) {
           }
         }, "\xB7 ", f);
       }))));
-    }, _isUserMemo ? /*#__PURE__*/React.createElement("button", {
-      onClick: function onClick() {
-        setTeacherMemos(_objectSpread(_objectSpread({}, teacherMemos), {}, _defineProperty({}, stu.name, _stuMemos.filter(function(m) { return m !== h; }))));
-      },
-      title: "\uC0C1\uB2F4 \uB0B4\uC5ED \uC0AD\uC81C",
-      style: {
-        flexShrink: 0,
-        marginTop: 2,
-        background: 'none',
-        border: '1px solid ' + tokens.line,
-        borderRadius: 6,
-        padding: '4px 8px',
-        fontSize: 11,
-        color: tokens.muted,
-        cursor: 'pointer',
-        lineHeight: 1
-      },
-      onMouseEnter: function(e) { e.currentTarget.style.borderColor = tokens.red; e.currentTarget.style.color = tokens.red; },
-      onMouseLeave: function(e) { e.currentTarget.style.borderColor = tokens.line; e.currentTarget.style.color = tokens.muted; }
-    }, "\u2715 \uC0AD\uC81C") : null));
+    }));
   }(), /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 16,
