@@ -33977,6 +33977,8 @@ var TopBar = function TopBar(_ref6) {
     '학교 운영 활동': '__school-activity'
   };
   var navMap = role === '학생' ? studentMap : teacherMap;
+  var isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+  var mobileLabel = { '대시보드': '홈', '진로 설계': '진로', '커리큘럼': '커리큘럼', '리포트': '리포트', '학생 목록': '학생', '추천 검토': '검토', '피드백': '피드백', '상담 기록': '상담', '학교 운영 활동': '운영' };
   var activeKey = function () {
     if (screen === 'dashboard') return '대시보드';
     if (role === '학생') {
@@ -34035,12 +34037,12 @@ var TopBar = function TopBar(_ref6) {
       color: tokens.ink,
       letterSpacing: '-0.02em'
     }
-  }, "\uCEE4\uB9AC\uD058\uB7FC ", /*#__PURE__*/React.createElement("span", {
+  }, "\uCEE4\uB9AC\uD058\uB7FC ", !isMobile && /*#__PURE__*/React.createElement("span", {
     style: {
       color: tokens.muted,
       fontWeight: 500
     }
-  }, "\xB7  \uB9DE\uCDA4\uD615 \uC9C4\uB85C\uC124\uACC4"))), /*#__PURE__*/React.createElement("div", {
+  }, "\xB7  \uB9DE\uCDA4\uD615 \uC9C4\uB85C\uC124\uACC4"))), !isMobile && /*#__PURE__*/React.createElement("div", {
     style: {
       width: 1,
       height: 22,
@@ -34059,13 +34061,14 @@ var TopBar = function TopBar(_ref6) {
         return onNav && onNav(navMap[item]);
       },
       style: {
-        padding: '8px 12px',
-        fontSize: 13,
+        padding: isMobile ? '6px 8px' : '8px 12px',
+        fontSize: isMobile ? 11 : 13,
         fontWeight: active ? 600 : 500,
         color: active ? tokens.ink : tokens.muted,
         background: active ? tokens.lineSoft : 'transparent',
         borderRadius: 7,
         cursor: 'pointer',
+        whiteSpace: 'nowrap',
         transition: 'background 0.15s, color 0.15s'
       },
       onMouseEnter: function onMouseEnter(e) {
@@ -34080,7 +34083,7 @@ var TopBar = function TopBar(_ref6) {
           e.currentTarget.style.color = tokens.muted;
         }
       }
-    }, item);
+    }, isMobile ? (mobileLabel[item] || item) : item);
   }))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
@@ -34108,7 +34111,7 @@ var TopBar = function TopBar(_ref6) {
       fontWeight: 700,
       fontSize: 12
     }
-  }, user && user.initial || (role === '학생' ? '민' : '선')), /*#__PURE__*/React.createElement("div", {
+  }, user && user.initial || (role === '학생' ? '민' : '선')), !isMobile && /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 12,
       paddingRight: 4
@@ -34137,7 +34140,7 @@ var TopBar = function TopBar(_ref6) {
       fontSize: 11,
       fontWeight: 600,
       color: tokens.muted,
-      padding: '4px 10px',
+      padding: isMobile ? '4px 6px' : '4px 10px',
       cursor: 'pointer'
     },
     onMouseEnter: function onMouseEnter(e) {
@@ -34146,7 +34149,7 @@ var TopBar = function TopBar(_ref6) {
     onMouseLeave: function onMouseLeave(e) {
       e.currentTarget.style.color = tokens.muted;
     }
-  }, "\uB85C\uADF8\uC544\uC6C3"))));
+  }, isMobile ? "\uB098\uAC00\uAE30" : "\uB85C\uADF8\uC544\uC6C3"))));
 };
 
 // ============ Left progress rail ============
@@ -35875,6 +35878,7 @@ var StudentDashboard = function StudentDashboard(_ref2) {
     style: {
       marginTop: 22,
       display: 'flex',
+      flexWrap: 'wrap',
       gap: 8
     }
   }, /*#__PURE__*/React.createElement(Button, {
