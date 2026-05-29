@@ -33978,7 +33978,7 @@ var TopBar = function TopBar(_ref6) {
   };
   var navMap = role === '학생' ? studentMap : teacherMap;
   var isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
-  var mobileLabel = { '대시보드': '홈', '진로 설계': '진로', '커리큘럼': '커리큘럼', '리포트': '리포트', '학생 목록': '학생', '추천 검토': '검토', '피드백': '피드백', '상담 기록': '상담', '학교 운영 활동': '운영' };
+
   var activeKey = function () {
     if (screen === 'dashboard') return '대시보드';
     if (role === '학생') {
@@ -34088,7 +34088,7 @@ var TopBar = function TopBar(_ref6) {
           e.currentTarget.style.color = tokens.muted;
         }
       }
-    }, isMobile ? (mobileLabel[item] || item) : item);
+    }, item);
   }))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
