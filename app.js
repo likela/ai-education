@@ -36662,8 +36662,8 @@ var StudentDashboard = function StudentDashboard(_ref2) {
   })), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
+      flexDirection: 'column',
+      gap: 10,
       paddingTop: 14,
       borderTop: "1px solid ".concat(tokens.lineSoft)
     }
@@ -36676,7 +36676,7 @@ var StudentDashboard = function StudentDashboard(_ref2) {
     style: {
       display: 'flex',
       gap: 8,
-      flexWrap: 'wrap'
+      justifyContent: 'flex-end'
     }
   }, /*#__PURE__*/React.createElement(Button, {
     variant: "secondary",
@@ -38220,6 +38220,14 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
     _arP = _slicedToArray(_uStateAR, 2),
     altRec = _arP[0],
     setAltRec = _arP[1];
+  var _uStateCI = uState(''),
+    _ciP = _slicedToArray(_uStateCI, 2),
+    customInput = _ciP[0],
+    setCustomInput = _ciP[1];
+  var _uStateCL = uState([]),
+    _clP = _slicedToArray(_uStateCL, 2),
+    customList = _clP[0],
+    setCustomList = _clP[1];
 
     var _derivedSubtopics = {};
   if (schoolActivitiesCS && userNameCS) {
@@ -39428,6 +39436,8 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
     }
   }, /*#__PURE__*/React.createElement("input", {
     placeholder: "\uC608: \uC758\uB8CC \uACC4\uC5F4 \uD559\uACFC\uC758 \uAD50\uC218\uB2D8 \uBA58\uD1A0\uB9C1 \uC2E0\uCCAD\uD558\uAE30",
+    value: customInput,
+    onChange: function(e) { setCustomInput(e.target.value); },
     style: {
       width: '100%',
       padding: '12px 14px',
@@ -39445,14 +39455,36 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
   }, /*#__PURE__*/React.createElement(Button, {
     variant: "primary",
     size: "sm",
-    onClick: function onClick() { showToast('\ud65c\ub3d9\uc774 \ucd94\uac00\ub418\uc5c8\uc5b4\uc694.'); }
+    onClick: function onClick() {
+      if (!customInput.trim()) return;
+      setCustomList(function(prev) { return prev.concat([customInput.trim()]); });
+      setCustomInput('');
+      showToast('\ud65c\ub3d9\uc774 \ucd94\uac00\ub418\uc5c8\uc5b4\uc694.');
+    },
+    disabled: !customInput.trim()
   }, '\ud65c\ub3d9 \ucd94\uac00')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 11,
       color: tokens.green,
       fontWeight: 600
     }
-  }, "\uC88B\uC544\uC694! \uC9C1\uC811 \uC120\uD0DD\uD55C \uD65C\uB3D9\uC740 \uB354 \uC758\uBBF8 \uC788\uC744 \uAC70\uC608\uC694.")))), /*#__PURE__*/React.createElement("div", {
+  }, "\uC88B\uC544\uC694! \uC9C1\uC811 \uC120\uD0DD\uD55C \uD65C\uB3D9\uC740 \uB354 \uC758\uBBF8 \uC788\uC744 \uAC70\uC608\uC694.")), customList.length > 0 && /*#__PURE__*/React.createElement("div", {
+    style: { marginTop: 12 }
+  }, customList.map(function(item, ci) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: ci,
+      style: {
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        padding: '8px 12px', marginBottom: 4, borderRadius: 8,
+        background: tokens.greenSoft, fontSize: 13, color: tokens.ink
+      }
+    }, /*#__PURE__*/React.createElement("span", null, item),
+       /*#__PURE__*/React.createElement("button", {
+        onClick: function() { setCustomList(function(prev) { return prev.filter(function(_, j) { return j !== ci; }); }); },
+        style: { background: 'none', border: 'none', cursor: 'pointer', color: tokens.inkSoft, fontSize: 18, lineHeight: 1, padding: '0 4px' }
+      }, '×')
+    );
+  })))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       justifyContent: 'space-between',
