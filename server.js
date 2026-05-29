@@ -487,6 +487,16 @@ const server = http.createServer(async (req, res) => {
       'Content-Type': mime,
       'Cache-Control': 'no-store, no-cache, must-revalidate',
     });
+    // index.html 서빙 시 app.js 버전을 파일 mtime 기반으로 자동 교체
+    if (urlPath === '/index.html') {
+      try {
+        const appMtime = fs.statSync(path.join(ROOT, 'app.js')).mtimeMs;
+        const ver = Math.floor(appMtime / 1000).toString(36);
+        const html = data.toString('utf-8').replace(/app\.js\?v=[^"']+/, 'app.js?v=' + ver);
+        res.end(Buffer.from(html, 'utf-8'));
+        return;
+      } catch(e) { /* fallthrough */ }
+    }
     res.end(data);
   });
 });
