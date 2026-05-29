@@ -40575,12 +40575,22 @@ var FinalScreen = function FinalScreen(_ref7) {
         cursor: 'pointer'
       },
       onClick: function onClick() {
-        var idx = SETTEUK_TYPES.findIndex(function (t) {
-          return t.key === setteukType;
-        });
         var newSetteuk = _toConsumableArray(setteuk);
+        var currentText = newSetteuk[i].text;
+        // Find which type currently matches this card's text
+        var currentTypeIdx = SETTEUK_TYPES.findIndex(function(t) {
+          return t.texts[i] === currentText;
+        });
+        // If not found (user edited text), fall back to setteukType
+        if (currentTypeIdx === -1) {
+          currentTypeIdx = SETTEUK_TYPES.findIndex(function(t) {
+            return t.key === setteukType;
+          });
+        }
+        // Cycle to next type (A→B→C→A)
+        var nextTypeIdx = (currentTypeIdx + 1) % SETTEUK_TYPES.length;
         newSetteuk[i] = _objectSpread(_objectSpread({}, newSetteuk[i]), {}, {
-          text: SETTEUK_TYPES[idx].texts[i]
+          text: SETTEUK_TYPES[nextTypeIdx].texts[i]
         });
         setSetteuk(newSetteuk);
         triggerSave();
