@@ -42847,13 +42847,15 @@ var TeacherView = function TeacherView(_refTV) {
         borderRadius: 8
       }
     }, "\uC544\uC9C1 \uC774 \uC720\uD615\uC758 \uC0C1\uB2F4 \uAE30\uB85D\uC774 \uC5C6\uC5B4\uC694.") : filtered.map(function (h, i) {
+      var _isUserMemo = _stuMemos.indexOf(h) !== -1;
       return /*#__PURE__*/React.createElement("div", {
         key: i,
         style: {
           display: 'flex',
           gap: 14,
           padding: '14px 0',
-          borderTop: i > 0 ? "1px solid ".concat(tokens.lineSoft) : 'none'
+          borderTop: i > 0 ? "1px solid ".concat(tokens.lineSoft) : 'none',
+          alignItems: 'flex-start'
         }
       }, /*#__PURE__*/React.createElement("div", {
         style: {
@@ -42928,7 +42930,26 @@ var TeacherView = function TeacherView(_refTV) {
           }
         }, "\xB7 ", f);
       }))));
-    }));
+    }, _isUserMemo ? /*#__PURE__*/React.createElement("button", {
+      onClick: function onClick() {
+        setTeacherMemos(_objectSpread(_objectSpread({}, teacherMemos), {}, _defineProperty({}, stu.name, _stuMemos.filter(function(m) { return m !== h; }))));
+      },
+      title: "\uC0C1\uB2F4 \uB0B4\uC5ED \uC0AD\uC81C",
+      style: {
+        flexShrink: 0,
+        marginTop: 2,
+        background: 'none',
+        border: '1px solid ' + tokens.line,
+        borderRadius: 6,
+        padding: '4px 8px',
+        fontSize: 11,
+        color: tokens.muted,
+        cursor: 'pointer',
+        lineHeight: 1
+      },
+      onMouseEnter: function(e) { e.currentTarget.style.borderColor = tokens.red; e.currentTarget.style.color = tokens.red; },
+      onMouseLeave: function(e) { e.currentTarget.style.borderColor = tokens.line; e.currentTarget.style.color = tokens.muted; }
+    }, "\u2715 \uC0AD\uC81C") : null));
   }(), /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 16,
