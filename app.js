@@ -41288,18 +41288,21 @@ var FinalScreen = function FinalScreen(_ref7) {
           fontWeight: 600,
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center',
+          alignItems: rec.reflection ? 'flex-start' : 'center',
           cursor: 'pointer'
         },
         onClick: function onClick() {
-          return setReflectOpen(true);
+          setReflectText(rec.reflection || '');
+          setReflectOpen(true);
         }
-      }, /*#__PURE__*/React.createElement("span", null, "\xAB\uC774 \uD65C\uB3D9\uC774 \uB098\uC5D0\uAC8C \uC5B4\uB5A4 \uC758\uBBF8\uC600\uB098\uC694?\xBB \uD68C\uACE0 \uC785\uB825 \uB300\uAE30"), /*#__PURE__*/React.createElement("span", {
+      }, /*#__PURE__*/React.createElement("span", { style: { flex: 1, whiteSpace: 'pre-wrap', lineHeight: 1.5 } }, rec.reflection || "\xAB\uC774 \uD65C\uB3D9\uC774 \uB098\uC5D0\uAC8C \uC5B4\uB5A4 \uC758\uBBF8\uC600\uB098\uC694?\xBB \uD68C\uACE0 \uC785\uB825 \uB300\uAE30"), /*#__PURE__*/React.createElement("span", {
         style: {
           cursor: 'pointer',
-          userSelect: 'none'
+          userSelect: 'none',
+          marginLeft: 8,
+          flexShrink: 0
         }
-      }, "+ \uC785\uB825")))));
+      }, rec.reflection ? "\u2728 \uC218\uC815" : "+ \uC785\uB825")))));
     })));
   }(), /*#__PURE__*/React.createElement(Card, {
     style: {
