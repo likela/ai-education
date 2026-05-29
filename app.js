@@ -45113,6 +45113,16 @@ var SchoolActivityMenu = function SchoolActivityMenu(_refSA) {
       },
       onMouseLeave: function onMouseLeave(e) {
         return e.currentTarget.style.color = tokens.muted;
+      },
+      onClick: function onClick() {
+        setActivities(function(prev) {
+          return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, cat, prev[cat].map(function(a) {
+            return a.id === openActivity.id
+              ? _objectSpread(_objectSpread({}, a), {}, { subtopics: a.subtopics.filter(function(sub) { return sub.id !== s.id; }) })
+              : a;
+          })));
+        });
+        triggerSave();
       }
     }, "\u2715")));
   }), directOpen ? /*#__PURE__*/React.createElement("div", {
