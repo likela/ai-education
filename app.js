@@ -44210,6 +44210,21 @@ var SchoolActivityMenu = function SchoolActivityMenu(_refSA) {
     setAiLoading(true);
     triggerSave();
     setTimeout(function () {
+      setActivities(function (prev) {
+        var act = (prev[cat] || []).find(function(a) { return a.id === actId; });
+        var baseName = act ? act.name : '';
+        var today = new Date();
+        var fmt = function(d) { return d.getFullYear() + '.' + String(d.getMonth()+1).padStart(2,'0') + '.' + String(d.getDate()).padStart(2,'0'); };
+        var d1 = fmt(today), d2 = fmt(new Date(today - 30*24*3600*1000)), d3 = fmt(new Date(today - 60*24*3600*1000));
+        var generated = [
+          { id: actId + '_s1', selected: true, text: baseName + ' 기초 개념 및 미디어 확인', articles: [{ title: baseName + ' 관련 교육 트렌드 1', media: '연합뉴스', date: d1, verified: true }, { title: baseName + ' 관련 교육 트렌드 2', media: '에듀프레스', date: d2, verified: true }] },
+          { id: actId + '_s2', selected: true, text: baseName + ' 사례 연구 및 현황 분석', articles: [{ title: baseName + ' 관련 교육 트렌드 3', media: '동아사이언스', date: d2, verified: true }, { title: baseName + ' 관련 교육 트렌드 4', media: '연합뉴스', date: d3, verified: true }] },
+          { id: actId + '_s3', selected: false, text: baseName + ' 성찰 및 피드백 — 활동 보고서 작성', articles: [{ title: baseName + ' 관련 교육 트렌드 5', media: '에듀프레스', date: d1, verified: true }] }
+        ];
+        return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, cat, (prev[cat] || []).map(function(a) {
+          return a.id === actId ? _objectSpread(_objectSpread({}, a), {}, { subtopics: generated }) : a;
+        })));
+      });
       setAiLoading(false);
       showToast('세부 주제를 새로 생성했어요.');
     }, 1500);
