@@ -39514,7 +39514,7 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
       marginTop: 4
     }
   }, "\uB300\uD559\uC54C\uB9AC\uBBF8 \xB7 \uB300\uD559\uC5B4\uB514\uAC00 2026.04 \uAE30\uC900 \xB7 \uC785\uC2DC \uACB0\uACFC \uB2E8\uC815\uC774 \uC544\uB2CC \uC900\uBE44 \uBC29\uD5A5 \uCC38\uACE0\uC6A9 \xB7 \uBCA0\uD0C0 \uBC84\uC804\uC5D0\uC11C\uB294 \uBCC0\uACBD \uB0B4\uC6A9\uC774 \uBC18\uC601\uB418\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4")), /*#__PURE__*/React.createElement(Button, {
-    variant: "ghost",
+    variant: "secondary",
     size: "sm",
     onClick: function onClick() {
       return setCompareOpen(false);
