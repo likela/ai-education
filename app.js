@@ -38215,6 +38215,7 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
   var _csTP = _slicedToArray(_uStateCST, 2);
   var _csToastMsg = _csTP[0]; var _setCsToast = _csTP[1];
   var showToast = function showToast(msg) { _setCsToast(msg); setTimeout(function() { _setCsToast(''); }, 2400); };
+  var isMobileCS = typeof window !== 'undefined' && window.innerWidth < 640;
   var _uStateAR = uState(false),
     _arP = _slicedToArray(_uStateAR, 2),
     altRec = _arP[0],
@@ -39493,7 +39494,7 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      padding: '24px 28px',
+      padding: isMobileCS ? '16px 16px' : '24px 28px',
       borderBottom: "1px solid ".concat(tokens.line),
       display: 'flex',
       justifyContent: 'space-between',
@@ -39530,13 +39531,14 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
     }
   }, "\uB2EB\uAE30 \u2715")), /*#__PURE__*/React.createElement("div", {
     style: {
-      padding: '20px 28px 28px'
+      padding: isMobileCS ? '12px 12px 20px' : '20px 28px 28px'
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       borderRadius: 10,
       overflow: 'hidden',
-      border: "1px solid ".concat(tokens.line)
+      border: "1px solid ".concat(tokens.line),
+      display: isMobileCS ? 'none' : undefined
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -39651,6 +39653,64 @@ var CurriculumScreen = function CurriculumScreen(_ref3) {
           size: "xs"
         }, p);
       })) : cell);
+    }));
+  })), isMobileCS && /*#__PURE__*/React.createElement("div", {
+    style: { display: 'flex', flexDirection: 'column', gap: 12 }
+  }, [{
+    name: '서울대학교', sub: '의과대학', tone: tokens.navy
+  }, {
+    name: '연세대학교', sub: '의과대학', tone: tokens.accent
+  }, {
+    name: '울산대학교', sub: '의과대학', tone: tokens.green
+  }].map(function(u, ui) {
+    var _cRows = [{
+      label: '특성',
+      cells: ['기초의학 \xB7 연구 중심, 의과대학원(MD/PhD) 연계 교육', '임상 \xB7 환자 중심, 세브란스병원과의 강한 임상 연계', '서울아산병원 연계 \xB7 2학년부터 임상 조기 투입']
+    }, {
+      label: '핵심 교육과정',
+      cells: ['의예 단계에서 연구 프로그램 조기 노출. 해외 교류 과정 운영', '임상 PBL 수업 중심. 대학병원 연계 온사이트 실습 조기 시작', '의과학 + 임상의학 이원교육. 서울아산병원 실습 중심']
+    }, {
+      label: '권장 이수 과목',
+      cells: [['생명과학II', '화학II', '미적분', '확률과통계'], ['생명과학II', '화학II', '미적분', '생활과 윤리'], ['생명과학II', '화학II', '미적분', '보건', '심리학']],
+      pill: true
+    }, {
+      label: '중시 역량',
+      cells: [['연구 탐구력', '자기주도 학습', '국제적 감각'], ['환자 공감', '의사소통', '임상 도전'], ['임상 적응력', '입원 환경 이해', '협업 소통']],
+      pill: true, tone: 'amber'
+    }, {
+      label: '권장 활동',
+      cells: ['연구대회, 과학 탐구 프로젝트, 의학 논문 회독', '의료 윤리 토론, 환자 고찰 활동, 임상 체험 기록', '신경외과 관심 활동, 서울아산병원 자원봉사']
+    }, {
+      label: '2026 모집인원',
+      cells: ['수시 75명 \xB7 정시 60명', '수시 65명 \xB7 정시 45명', '수시 30명 \xB7 정시 10명']
+    }, {
+      label: '특이 포인트',
+      cells: ['학장교수 건강증진센터 운영', '세브란스병원 해외 의료지원', '잘 알려진 의사\xB7경영 결합 트랙'],
+      muted: true
+    }];
+    return /*#__PURE__*/React.createElement("div", {
+      key: u.name,
+      style: { borderRadius: 10, overflow: 'hidden', border: '1px solid ' + tokens.line }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: { padding: '14px 16px', background: u.tone, color: '#fff' }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: { fontSize: 17, fontWeight: 800, letterSpacing: '-0.02em' }
+    }, u.name), /*#__PURE__*/React.createElement("div", {
+      style: { fontSize: 11, opacity: 0.85, marginTop: 2 }
+    }, u.sub)), _cRows.map(function(row, ri) {
+      var cell = row.cells[ui];
+      return /*#__PURE__*/React.createElement("div", {
+        key: ri,
+        style: { padding: '10px 14px', borderTop: '1px solid ' + tokens.line, background: ri % 2 === 0 ? tokens.bg : tokens.paper }
+      }, /*#__PURE__*/React.createElement("div", {
+        style: { fontSize: 10, fontWeight: 700, color: tokens.muted, letterSpacing: '0.04em', marginBottom: 4 }
+      }, row.label), Array.isArray(cell)
+        ? /*#__PURE__*/React.createElement("div", { style: { display: 'flex', flexWrap: 'wrap', gap: 4 } },
+            cell.map(function(p) { return /*#__PURE__*/React.createElement(Pill, { key: p, tone: row.tone || 'navy', size: 'xs' }, p); })
+          )
+        : /*#__PURE__*/React.createElement("div", {
+            style: { fontSize: 13, color: row.muted ? tokens.muted : tokens.inkSoft, lineHeight: 1.6 }
+          }, cell));
     }));
   })), /*#__PURE__*/React.createElement("div", {
     style: {
