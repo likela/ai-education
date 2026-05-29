@@ -41272,6 +41272,7 @@ var FinalScreen = function FinalScreen(_ref7) {
         size: "sm",
         disabled: !reflectText.trim(),
         onClick: function onClick() {
+          setRec(function(prev) { return _objectSpread(_objectSpread({}, prev), {}, { reflection: reflectText }); });
           setReflectOpen(false);
           setReflectText('');
           showToast('회고가 저장되었어요. 세특 초안에 반영할게요.');
