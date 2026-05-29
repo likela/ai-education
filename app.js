@@ -33996,7 +33996,7 @@ var TopBar = function TopBar(_ref6) {
       height: 60,
       borderBottom: "1px solid ".concat(tokens.line),
       background: tokens.paper,
-      padding: '0 24px',
+      padding: isMobile ? '0 8px' : '0 24px',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
@@ -34006,14 +34006,18 @@ var TopBar = function TopBar(_ref6) {
     style: {
       display: 'flex',
       alignItems: 'center',
-      gap: 16
+      gap: 16,
+      flex: 1,
+      minWidth: 0,
+      overflowX: 'auto'
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       alignItems: 'center',
       gap: 10,
-      cursor: 'pointer'
+      cursor: 'pointer',
+      flexShrink: 0
     },
     onClick: function onClick() {
       return onNav && onNav('__dashboard');
@@ -34035,7 +34039,8 @@ var TopBar = function TopBar(_ref6) {
       fontWeight: 700,
       fontSize: 15,
       color: tokens.ink,
-      letterSpacing: '-0.02em'
+      letterSpacing: '-0.02em',
+      display: isMobile ? 'none' : undefined
     }
   }, "\uCEE4\uB9AC\uD058\uB7FC ", !isMobile && /*#__PURE__*/React.createElement("span", {
     style: {
@@ -34088,7 +34093,8 @@ var TopBar = function TopBar(_ref6) {
     style: {
       display: 'flex',
       alignItems: 'center',
-      gap: 12
+      gap: 12,
+      flexShrink: 0
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -36830,6 +36836,9 @@ var TeacherDashboard = function TeacherDashboard(_ref3) {
     size: "md",
     style: {
       color: '#fff'
+    },
+    onClick: function onClick() {
+      return onGo('school-activity');
     }
   }, "\uC624\uB298\uC758 \uC77C\uC815 \uBCF4\uAE30"))), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -40840,7 +40849,7 @@ var FinalScreen = function FinalScreen(_ref7) {
       marginTop: 4
     }
   }, "\uC138\uD2B9\xB7\uC0C1\uB2F4 \uAE30\uB85D\xB7\uACE0\uAD50 \uC9C4\uD559 \uC790\uB8CC\uB85C \uC790\uB3D9 \uC815\uB9AC\uB418\uACE0 \uC788\uC5B4\uC694")), /*#__PURE__*/React.createElement(Button, {
-    variant: "ghost",
+    variant: "secondary",
     size: "sm",
     onClick: function onClick() {
       return setHistoryOpen(false);
