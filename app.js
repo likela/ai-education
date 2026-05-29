@@ -44097,6 +44097,14 @@ var SchoolActivityMenu = function SchoolActivityMenu(_refSA) {
     _sState22 = _slicedToArray(_sState21, 2),
     previewOpen = _sState22[0],
     setPreviewOpen = _sState22[1];
+  var _sState23 = sState(false),
+    _sState24 = _slicedToArray(_sState23, 2),
+    directOpen = _sState24[0],
+    setDirectOpen = _sState24[1];
+  var _sState25 = sState(''),
+    _sState26 = _slicedToArray(_sState25, 2),
+    directText = _sState26[0],
+    setDirectText = _sState26[1];
   var showToast = function showToast(m) {
     setToast(m);
     setTimeout(function () {
@@ -45088,10 +45096,50 @@ var SchoolActivityMenu = function SchoolActivityMenu(_refSA) {
         return e.currentTarget.style.color = tokens.muted;
       }
     }, "\u2715")));
-  }), /*#__PURE__*/React.createElement("div", {
-    onClick: function onClick() {
-      return showToast('직접 주제 입력 영역이 펼쳐졌어요. (데모에서는 토스트로 갈음)');
+  }), directOpen ? /*#__PURE__*/React.createElement("div", {
+    style: { padding: 12, border: "1px solid ".concat(tokens.navy), borderRadius: 8, background: tokens.paper }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: { fontSize: 12, fontWeight: 700, color: tokens.navy, marginBottom: 8 }
+  }, "\uC9C1\uC811 \uC8FC\uC81C \uC785\uB825"), /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    value: directText,
+    onChange: function(e) { setDirectText(e.target.value); },
+    onKeyDown: function(e) {
+      if (e.key === 'Enter' && directText.trim()) {
+        var newId = 'custom_' + Date.now();
+        setActivities(function(prev) {
+          return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, cat, (prev[cat] || []).concat([{ id: newId, name: directText.trim(), grades: ['\uACE02', '\uACE03'], desc: '', active: true, students: 0, subtopics: [] }])));
+        });
+        setDirectText('');
+        setDirectOpen(false);
+        triggerSave();
+        showToast('\uC8FC\uC81C\uAC00 \uCD94\uAC00\uB418\uC5C8\uC5B4\uC694.');
+      }
     },
+    placeholder: "\uC8FC\uC81C \uC774\uB984\uC744 \uC785\uB825\uD558\uC138\uC694",
+    style: { width: '100%', boxSizing: 'border-box', padding: '8px 10px', border: "1px solid ".concat(tokens.line), borderRadius: 6, fontSize: 13, outline: 'none', marginBottom: 8 },
+    autoFocus: true
+  }), /*#__PURE__*/React.createElement("div", {
+    style: { display: 'flex', gap: 8, justifyContent: 'flex-end' }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: function() { setDirectOpen(false); setDirectText(''); },
+    style: { padding: '6px 14px', border: "1px solid ".concat(tokens.line), borderRadius: 6, background: 'none', cursor: 'pointer', fontSize: 12, color: tokens.muted }
+  }, "\uCDE8\uC18C"), /*#__PURE__*/React.createElement("button", {
+    onClick: function() {
+      if (!directText.trim()) return;
+      var newId = 'custom_' + Date.now();
+      setActivities(function(prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, cat, (prev[cat] || []).concat([{ id: newId, name: directText.trim(), grades: ['\uACE02', '\uACE03'], desc: '', active: true, students: 0, subtopics: [] }])));
+      });
+      setDirectText('');
+      setDirectOpen(false);
+      triggerSave();
+      showToast('\uC8FC\uC81C\uAC00 \uCD94\uAC00\uB418\uC5C8\uC5B4\uC694.');
+    },
+    disabled: !directText.trim(),
+    style: { padding: '6px 14px', border: 'none', borderRadius: 6, background: directText.trim() ? tokens.navy : tokens.line, color: directText.trim() ? '#fff' : tokens.muted, cursor: directText.trim() ? 'pointer' : 'default', fontSize: 12, fontWeight: 700 }
+  }, "\uCD94\uAC00"))) : /*#__PURE__*/React.createElement("div", {
+    onClick: function onClick() { setDirectOpen(true); },
     style: {
       padding: 12,
       border: "1px dashed ".concat(tokens.line),
